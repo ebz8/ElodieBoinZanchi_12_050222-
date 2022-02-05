@@ -2,8 +2,8 @@ import './App.scss'
 import { Routes, Route } from "react-router-dom"
 
 // composants page
-import Home from './pages/profil/profil'
-import Profil from './pages/profil/profil';
+import Home from './pages/Home/Home'
+import Profil from './pages/Profil/Profil'
 
 function App() {
 
