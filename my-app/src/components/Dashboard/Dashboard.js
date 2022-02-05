@@ -15,8 +15,7 @@ export default function Dashboard() {
 
       <UserHeader />
       
-      <div className="user-stats-container">
-
+      <section className="user-stats-container">
         <div className="stats">
           <BarChart />
           <LineChart />
@@ -30,8 +29,7 @@ export default function Dashboard() {
           <InfoCard />
           <InfoCard />
         </div>
-
-      </div>
+      </section>
     </main>
   )
 }
