@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: rem(91);
+    padding: 1rem;
+    background-color: $secondaryColor;
+
+    .logo {
+        width: rem(178);
+        padding-right: 2rem;
+    }
+
+    .navigation-container {
+        width : 100%;
+
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+    
+            a {
+                color: $lightSecondaryColor;
+                font-size: rem(24);
+                font-weight: 500;
+            }
+        }
+    }
+}
