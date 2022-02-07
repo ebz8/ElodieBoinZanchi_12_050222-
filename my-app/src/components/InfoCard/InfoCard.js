@@ -1,8 +1,8 @@
 
 export default function InfoCard() {
   return (
-    <div>
-      
+    <div className="infocard">
+      <p>InfoCard</p>
     </div>
   )
 }

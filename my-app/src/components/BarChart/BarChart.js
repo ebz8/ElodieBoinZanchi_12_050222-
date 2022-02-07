@@ -1,7 +1,9 @@
+import './BarChart.scss'
+
 export default function BarChart() {
   return (
-    <div>
-      
+    <div className="barchart">
+      <p>BarChart</p>
     </div>
   )
 }

@@ -4,13 +4,15 @@ $barWidth : rem(117);
 
 .vertical-nav {
     z-index: -1;
-    position: relative;
+    position: fixed;
+    top:0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: $barWidth;
-    height: calc( 100vh - rem(91));
+    // height: calc( 100vh - rem(91));
     background-color: $secondaryColor;
     color: $lightSecondaryColor;
 

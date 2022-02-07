@@ -1,8 +1,9 @@
+import './RadarChart.scss'
 
 export default function RadarChart() {
   return (
-    <div>
-      
+    <div className="radarchart">
+      <p>Radarchart</p>
     </div>
   )
 }

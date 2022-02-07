@@ -18,10 +18,10 @@ export default function Dashboard(props) {
       
       <section className="user-stats-container">
         <div className="stats">
-          <BarChart />
-          <LineChart />
-          <RadarChart />
-          <RadialBarChart />
+          <BarChart className="stats-item" />
+          <LineChart className="stats-item" />
+          <RadarChart className="stats-item" />
+          <RadialBarChart className="stats-item" />
         </div>
 
         <div className="cards">

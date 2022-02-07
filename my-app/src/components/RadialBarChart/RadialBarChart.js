@@ -1,8 +1,8 @@
-
+import './RadialBarChart.scss'
 export default function RadialBarChart() {
   return (
-    <div>
-      
+    <div className="radialbarchart">
+      <p>RadialBarChart</p>
     </div>
   )
 }

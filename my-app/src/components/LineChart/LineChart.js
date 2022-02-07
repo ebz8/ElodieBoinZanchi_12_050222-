@@ -1,8 +1,9 @@
+import './LineChart.scss'
 
 export default function LineChart() {
   return (
-    <div>
-      
+    <div className="linechart">
+      <p>LineChart</p>
     </div>
   )
 }

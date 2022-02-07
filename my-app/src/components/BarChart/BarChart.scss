@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+
+.barchart {
+    display: block;
+    width: 100%;
+    height: rem(320);
+    background-color: $lightSecondaryColor;
+}
