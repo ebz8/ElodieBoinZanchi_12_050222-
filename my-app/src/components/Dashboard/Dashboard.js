@@ -12,7 +12,7 @@ import InfoCard from '../InfoCard/InfoCard'
 export default function Dashboard(props) {
   const userInfos = props.currentUser.userInfos
   return (
-    <main>
+    <main className="dashboard">
 
       <UserHeader firstName={userInfos.firstName}/>
       

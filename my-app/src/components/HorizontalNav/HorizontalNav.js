@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom'
 export default function HorizontalNav(props) {
 
   return (
-    <header>
+    <header className="horizontal-nav">
       <Link to={`/user/${props.userId}/`}>
         <Logo alt="SportSee" className="logo"/>
       </Link>

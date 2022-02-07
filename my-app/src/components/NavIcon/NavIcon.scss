@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+.navicon {
+    width: rem(64);
+    height: rem(64);
+    padding: 1rem;
+    background-color: $lightSecondaryColor;
+    border-radius: .5rem;
+}

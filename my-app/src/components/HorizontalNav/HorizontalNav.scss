@@ -1,9 +1,10 @@
 @import '../../variables.scss';
 
-header {
+.horizontal-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     height: rem(91);
     padding: 1rem;
     background-color: $secondaryColor;

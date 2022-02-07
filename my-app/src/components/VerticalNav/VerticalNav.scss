@@ -1,0 +1,28 @@
+@import '../../variables.scss';
+
+$barWidth : rem(117);
+
+.vertical-nav {
+    z-index: -1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $barWidth;
+    height: calc( 100vh - rem(91));
+    background-color: $secondaryColor;
+    color: $lightSecondaryColor;
+
+    .navigation {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 1rem;
+    }
+
+    span {
+        position: absolute;
+        bottom: rem(60);
+        transform: rotate(-90deg);
+    }
+}
