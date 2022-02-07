@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.user-header {
+    padding: rem(60) rem(110);
+    font-size: rem(18);
+
+    h1 {
+        padding-bottom: 1.5rem;
+        font-size: rem(48);
+        font-weight: 500;
+    }
+
+    strong {
+        color: $mainColor;
+        font-weight: 500;
+    }
+}
