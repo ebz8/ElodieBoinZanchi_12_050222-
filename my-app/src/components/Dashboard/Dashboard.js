@@ -9,11 +9,12 @@ import RadialBarChart from '../RadialBarChart/RadialBarChart'
 import InfoCard from '../InfoCard/InfoCard'
 
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+  const userInfos = props.currentUser.userInfos
   return (
     <main>
 
-      <UserHeader />
+      <UserHeader firstName={userInfos.firstName}/>
       
       <section className="user-stats-container">
         <div className="stats">

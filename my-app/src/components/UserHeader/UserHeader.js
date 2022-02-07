@@ -1,8 +1,10 @@
-export default function UserHeader() {
+export default function UserHeader(props) {
+  const welcomeMsg = 'Félicitations ! Vous avez explosé vos objectifs hier 👏'
+
   return (
     <section className="user-header">
-      <h1>Bonjour user-prénom</h1>
-      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      <h1>Bonjour {props.firstName}</h1>
+      <p>{welcomeMsg}</p>
     </section>
   )
 }
