@@ -70,8 +70,8 @@ export default function RadialBarChart({ todayScore }) {
           stroke={colorScore}
           x={centerX}
           y={centerY - 10}
-          text-anchor="middle"
-          font-size="1.5em"
+          textAnchor="middle"
+          fontSize="1.5em"
         >
           {" "}
           {`${todayScore}%`}
@@ -80,10 +80,10 @@ export default function RadialBarChart({ todayScore }) {
         <text
           className="chart-svg-txt"
           fill={colorText}
-          stroke-width=".03rem"
+          strokeWidth=".03rem"
           x={centerX}
           y={centerY}
-          text-anchor="middle"
+          textAnchor="middle"
           dy=".8rem"
         >
           {" "}
@@ -93,10 +93,10 @@ export default function RadialBarChart({ todayScore }) {
         <text
           className="chart-svg-txt"
           fill={colorText}
-          stroke-width=".03rem"
+          strokeWidth=".03rem"
           x={centerX}
           y={centerY + 10}
-          text-anchor="middle"
+          textAnchor="middle"
           dy="1.3rem"
         >
           {" "}
