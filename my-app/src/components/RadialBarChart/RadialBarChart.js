@@ -9,7 +9,7 @@ export default function RadialBarChart({ todayScore }) {
   const [dayScore, setDayScore] = useState(null);
 
   useEffect(() => {
-    // ICI trouver le moyen d'ajouter :
+    // ICI trouver le moyen d'utiliser setDayScore pour mettre à jour :
     // le score en %
     // la barre de progession
   }, [dayScore]);
@@ -22,7 +22,7 @@ export default function RadialBarChart({ todayScore }) {
 
   const colorCercle = "white";
   const colorScore = "black";
-  const colorText = "darkgrey";
+  const colorText = "grey";
 
   // progress bar
   const colorBar = "red";
@@ -47,7 +47,7 @@ export default function RadialBarChart({ todayScore }) {
     <div className="radialbarchart">
       <h3>Score</h3>
       <svg width={width} height={height} className="chart-svg">
-        {/* progressive bar */}
+        {/* progressive bar : à afficher une fois les données chargées */}
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <path
             d={tauProgressArc(todayScore / 100)}
@@ -64,12 +64,14 @@ export default function RadialBarChart({ todayScore }) {
           fill={colorCercle}
         />
 
+        {/* score en pourcentages : à afficher une fois les données chargées */}
         <text
           className="chart-svg-score"
           stroke={colorScore}
           x={centerX}
           y={centerY - 10}
           text-anchor="middle"
+          font-size="1.5em"
         >
           {" "}
           {`${todayScore}%`}
@@ -77,7 +79,7 @@ export default function RadialBarChart({ todayScore }) {
 
         <text
           className="chart-svg-txt"
-          stroke={colorText}
+          fill={colorText}
           stroke-width=".03rem"
           x={centerX}
           y={centerY}
@@ -90,7 +92,7 @@ export default function RadialBarChart({ todayScore }) {
 
         <text
           className="chart-svg-txt"
-          stroke={colorText}
+          fill={colorText}
           stroke-width=".03rem"
           x={centerX}
           y={centerY + 10}
