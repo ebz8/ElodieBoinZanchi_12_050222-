@@ -1,8 +1,19 @@
 @import '../../variables.scss';
 
 .radialbarchart {
-    display: block;
+    display: flex;
+    padding: 2rem;
+    flex-flow: column wrap;
     width: rem(258);
     height: rem(263);
     background-color: $lightSecondaryColor;
+
+    h3 {
+        font-size: rem(15);
+    }
+
+    .chart-svg {
+        align-self: center;
+        justify-self: center;
+    }
 }

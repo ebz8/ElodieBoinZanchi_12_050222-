@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.chart-svg {
+    font-family: Roboto;
+    .chart-svg-score {
+        font-size: rem(26);
+    }
+    .chart-svg-txt {
+        font-size: rem(16);
+    }
+
+    .chart-svg-bar {
+        color: $mainColor;
+    }
+}
