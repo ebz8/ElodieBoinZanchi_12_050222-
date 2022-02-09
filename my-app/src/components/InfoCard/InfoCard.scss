@@ -1,0 +1,44 @@
+@import '../../variables.scss';
+
+.infocard {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding: 1.5rem;
+    gap: 2rem;
+    background-color: $lightSecondaryColor;
+    border-radius: .5rem;
+
+    .infocard-icon {
+        display: block;
+        padding: rem(20);
+        aspect-ratio: 1 / 1;
+        // min-height for aspect-ratio : to allow the content to overflow the preferred aspect radio
+        min-height: 0;
+        border-radius: .5rem;
+        
+        &.red {
+            color: $caloriesColor;
+            background-color: scale-color($caloriesColor,$lightness:94%);
+        }
+
+        &.blue {
+            color: $proteinsColor;
+            background-color: scale-color($proteinsColor,$lightness:94%);
+        }
+
+        &.yellow {
+            color: $glucidsColor;
+            background-color: scale-color($glucidsColor,$lightness:94%);
+        }
+
+        &.pink {
+            color: $lipidsColor;
+            background-color: scale-color($lipidsColor,$lightness:94%);
+        }
+    }
+
+              
+        
+    
+}

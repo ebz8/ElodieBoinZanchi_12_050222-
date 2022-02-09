@@ -10,6 +10,7 @@ import userActivity from '../../data/mockUser/12/activity.json'
 import userAverageSessions from '../../data/mockUser/12/average-sessions.json'
 import userPerformance from '../../data/mockUser/12/performance.json'
 
+
 export default function Profil() {
   const currentUser = user.data
 

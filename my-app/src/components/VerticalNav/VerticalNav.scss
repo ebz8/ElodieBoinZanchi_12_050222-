@@ -23,8 +23,11 @@ $barWidth : rem(117);
     }
 
     span {
+        display: block;
+        width: 100%;
         position: absolute;
-        bottom: rem(60);
+        bottom: rem(80);
+        white-space: nowrap;
         transform: rotate(-90deg);
     }
 }

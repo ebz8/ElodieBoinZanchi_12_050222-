@@ -1,12 +1,11 @@
-import "./RadialBarChart.scss";
+import "./RadialBarChart.scss"
 
-import { useEffect, useState, useRef } from "react";
-import PropTypes from "prop-types";
-
-import * as d3 from "d3";
+import { useEffect, useState } from "react"
+import * as d3 from "d3"
+import PropTypes from "prop-types"
 
 export default function RadialBarChart({ todayScore }) {
-  const [dayScore, setDayScore] = useState(null);
+  const [dayScore, setDayScore] = useState(null)
 
   useEffect(() => {
     // ICI trouver le moyen d'utiliser setDayScore pour mettre à jour :
@@ -14,26 +13,26 @@ export default function RadialBarChart({ todayScore }) {
     // la barre de progession
   }, [dayScore]);
 
-  const width = 170;
-  const height = 170;
-  const barWidth = 10;
-  const centerX = width / 2;
-  const centerY = height / 2;
+  const width = 170
+  const height = 170
+  const barWidth = 10
+  const centerX = width / 2
+  const centerY = height / 2
 
-  const colorCercle = "white";
-  const colorScore = "black";
-  const colorText = "grey";
+  const colorCercle = "white"
+  const colorScore = "black"
+  const colorText = "grey"
 
   // progress bar
-  const colorBar = "red";
-  const scoreBarOuterRadius = width / 2;
-  const scoreBarInnerRadius = width / 2 - barWidth;
+  const colorBar = "red"
+  const scoreBarOuterRadius = width / 2
+  const scoreBarInnerRadius = width / 2 - barWidth
   const scoreArcGenerator = d3
     .arc()
     .innerRadius(scoreBarInnerRadius)
     .outerRadius(scoreBarOuterRadius)
     .startAngle(0)
-    .cornerRadius(5);
+    .cornerRadius(5)
   const tauProgressArc = (value) =>
     scoreArcGenerator({
       // http://tauday.com/tau-manifesto
@@ -71,7 +70,7 @@ export default function RadialBarChart({ todayScore }) {
           x={centerX}
           y={centerY - 10}
           textAnchor="middle"
-          fontSize="1.5em"
+          fontSize="1.4em"
         >
           {" "}
           {`${todayScore}%`}
@@ -80,11 +79,10 @@ export default function RadialBarChart({ todayScore }) {
         <text
           className="chart-svg-txt"
           fill={colorText}
-          strokeWidth=".03rem"
           x={centerX}
           y={centerY}
           textAnchor="middle"
-          dy=".8rem"
+          dy="1.2em"
         >
           {" "}
           de votre{" "}
@@ -93,11 +91,10 @@ export default function RadialBarChart({ todayScore }) {
         <text
           className="chart-svg-txt"
           fill={colorText}
-          strokeWidth=".03rem"
           x={centerX}
           y={centerY + 10}
           textAnchor="middle"
-          dy="1.3rem"
+          dy="2rem"
         >
           {" "}
           objectif{" "}
@@ -109,4 +106,4 @@ export default function RadialBarChart({ todayScore }) {
 
 RadialBarChart.propTypes = {
   todayScore: PropTypes.number,
-};
+}
