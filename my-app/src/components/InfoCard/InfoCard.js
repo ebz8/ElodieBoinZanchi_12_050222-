@@ -7,6 +7,8 @@ import { ReactComponent as BurgerIcon } from '../../assets/icons/cheeseburger.sv
 
 
 export default function InfoCard({keyData, type, color}) {
+  const formatdKeyData = new Intl.NumberFormat('en-GB').format(keyData)
+
   return (
     <div className={`infocard`}>
     <div className={`infocard-icon ${color}`}>
@@ -15,8 +17,8 @@ export default function InfoCard({keyData, type, color}) {
       {type === "Glucides" && <AppleIcon/>}
       {type === "Lipides" && <BurgerIcon/>}
     </div>
-      <div className="infocard-txt">
-        <p>{keyData}{type === "Calories" ? "kCal" : "g"}</p>
+      <div className="infocard-data">
+        <p>{formatdKeyData}{type === "Calories" ? "kCal" : "g"}</p>
         <p>{type}</p>
       </div>
     </div>

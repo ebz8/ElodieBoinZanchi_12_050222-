@@ -36,7 +36,7 @@ export default function Dashboard(props) {
             <InfoCard
               color="red"
               type="Calories"
-              keyData={userKeyData.calorieCount / 1000}
+              keyData={userKeyData.calorieCount}
             />
           </li>
           <li>
