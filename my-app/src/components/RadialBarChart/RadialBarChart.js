@@ -1,17 +1,17 @@
 import "./RadialBarChart.scss"
 
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import * as d3 from "d3"
 import PropTypes from "prop-types"
 
 export default function RadialBarChart({ todayScore }) {
-  const [dayScore, setDayScore] = useState(null)
+  // const [dayScore, setDayScore] = useState(null)
 
-  useEffect(() => {
-    // ICI trouver le moyen d'utiliser setDayScore pour mettre à jour :
-    // le score en %
-    // la barre de progession
-  }, [dayScore]);
+  // useEffect(() => {
+  //   // ICI trouver le moyen d'utiliser setDayScore pour mettre à jour :
+  //   // le score en %
+  //   // la barre de progession
+  // }, [dayScore]);
 
   const width = 170
   const height = 170

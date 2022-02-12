@@ -4,7 +4,7 @@ import "./Dashboard.scss"
 import UserHeader from "../UserHeader/UserHeader"
 import BarChart from "../BarChart/BarChart"
 import LineChart from "../LineChart/LineChart"
-import RadarChart from "../RadarChart/RadarChart"
+import RadarChart from "../RadarChart/D3tests/RadarChart"
 import RadialBarChart from "../RadialBarChart/RadialBarChart"
 import InfoCard from "../InfoCard/InfoCard"
 
@@ -27,7 +27,7 @@ export default function Dashboard(props) {
         <div className="stats">
           <BarChart className="stats-item" />
           <LineChart className="stats-item" />
-          <RadarChart className="stats-item" />
+          <RadarChart className="stats-item" userPerformance={userPerformance}/>
           <RadialBarChart className="stats-item" todayScore={todayScore} />
         </div>
 
