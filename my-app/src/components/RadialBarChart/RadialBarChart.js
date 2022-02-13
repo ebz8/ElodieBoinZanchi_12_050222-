@@ -43,7 +43,7 @@ export default function RadialBarChart({ todayScore }) {
   // s'affichent avant le fetch
   // chargement des éléments interactifs D3 une fois le contenu chargé (useState sur todayScore)
   return (
-    <div className="radialbarchart">
+    <div className="radialbarchart stats-item">
       <h3>Score</h3>
       <svg width={width} height={height} className="chart-svg">
         {/* progressive bar : à afficher une fois les données chargées */}

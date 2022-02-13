@@ -9,22 +9,25 @@
     .user-stats-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
+        gap: 2rem;
         min-width: 0;
         
-
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             justify-content: space-between;
             grid-column: 1 / 4;
+            gap: 2rem;
 
-            
-            .barchart {
-                margin-bottom: 2rem;
-                grid-column : 1 / 5;
+            .stats-item {
+                width: 100%;
+                overflow: hidden;
+                border-radius: 1rem;
             }
 
+            .barchart {
+                grid-column : 1 / 4;
+            }
         }
 
         .cards {

@@ -3,7 +3,7 @@ import "./Dashboard.scss"
 // components
 import UserHeader from "../UserHeader/UserHeader"
 import BarChart from "../BarChart/BarChart"
-import LineChart from "../LineChart/LineChart"
+import SessionsLineChart from "../SessionsLineChart/SessionsLineChart"
 import SpiderRadarChart from "../RadarChart/SpiderRadarChart"
 import RadialBarChart from "../RadialBarChart/RadialBarChart"
 import InfoCard from "../InfoCard/InfoCard"
@@ -25,10 +25,10 @@ export default function Dashboard(props) {
 
       <section className="user-stats-container">
         <div className="stats">
-          <BarChart className="stats-item" />
-          <LineChart className="stats-item" />
-          <SpiderRadarChart className="stats-item" userPerformance={userPerformance}/>
-          <RadialBarChart className="stats-item" todayScore={todayScore} />
+          <BarChart />
+          <SessionsLineChart userAverageSessions={userAverageSessions}/>
+          <SpiderRadarChart userPerformance={userPerformance}/>
+          <RadialBarChart todayScore={todayScore} />
         </div>
 
         <ul className="cards">

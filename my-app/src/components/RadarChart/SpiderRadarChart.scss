@@ -1,11 +1,7 @@
 @import '../../variables.scss';
 
 .radarchart-container {
-    width: rem(258);
-    height: rem(263);
     background-color: $darkSecondaryColor;
-    overflow: hidden;
-    border-radius: 1rem;
 
     .radarchart-label {
         color: white,
