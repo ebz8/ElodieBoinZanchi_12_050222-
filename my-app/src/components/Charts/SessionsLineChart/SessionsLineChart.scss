@@ -1,0 +1,9 @@
+@import '../../../variables.scss';
+
+.sessionslinechart-container {
+    background-color: $mainColor;
+
+    h3 {
+        position: absolute;
+    }
+}

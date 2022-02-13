@@ -28,7 +28,7 @@ export default function SpiderRadarChart({userPerformance}) {
   ///// Custom chart by tweaking component props and passing in custom components ////
 
   return (
-      <ResponsiveContainer className="radarchart-container stats-item" width="99%" height="100%">
+      <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
         <RadarChart outerRadius={90} data={performanceData} cx="50%" cy="50%" >
             <PolarGrid />
             <PolarAngleAxis

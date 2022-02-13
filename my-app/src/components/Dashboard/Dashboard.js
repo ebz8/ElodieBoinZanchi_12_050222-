@@ -2,10 +2,10 @@ import "./Dashboard.scss"
 
 // components
 import UserHeader from "../UserHeader/UserHeader"
-import BarChart from "../BarChart/BarChart"
-import SessionsLineChart from "../SessionsLineChart/SessionsLineChart"
-import SpiderRadarChart from "../RadarChart/SpiderRadarChart"
-import RadialBarChart from "../RadialBarChart/RadialBarChart"
+import BarChart from "../Charts/BarChart/BarChart"
+import SessionsLineChart from "../Charts/SessionsLineChart/SessionsLineChart"
+import SpiderRadarChart from "../Charts/RadarChart/SpiderRadarChart"
+import RadialBarChart from "../Charts/RadialBarChart/RadialBarChart"
 import InfoCard from "../InfoCard/InfoCard"
 
 export default function Dashboard(props) {
@@ -22,15 +22,16 @@ export default function Dashboard(props) {
   return (
     <main className="dashboard">
       <UserHeader firstName={userInfos.firstName} />
-
+      {/* remplacer par composant Charts  */}
       <section className="user-stats-container">
-        <div className="stats">
-          <BarChart />
-          <SessionsLineChart userAverageSessions={userAverageSessions}/>
-          <SpiderRadarChart userPerformance={userPerformance}/>
-          <RadialBarChart todayScore={todayScore} />
-        </div>
+        <ul className="stats">
+          <li className="stats-item"><BarChart /></li>
+          <li className="stats-item"><SessionsLineChart userAverageSessions={userAverageSessions}/></li>
+          <li className="stats-item"><SpiderRadarChart userPerformance={userPerformance}/></li>
+          <li className="stats-item"><RadialBarChart todayScore={todayScore} /></li> 
+        </ul>
 
+        {/* remplacer par composant Cards  */}
         <ul className="cards">
           <li>
             <InfoCard
