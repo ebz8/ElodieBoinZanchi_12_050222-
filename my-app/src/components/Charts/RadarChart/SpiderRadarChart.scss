@@ -1,7 +1,6 @@
 @import '../../../variables.scss';
 
 .radarchart-container {
-    background-color: $darkSecondaryColor;
 
     // remove lines from the middle to labels
     .recharts-polar-grid-angle {

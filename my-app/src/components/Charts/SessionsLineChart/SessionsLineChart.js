@@ -10,7 +10,7 @@ import {
   Rectangle
 } from 'recharts'
 
-import { useState } from 'react'
+// import { useState } from 'react'
 
 export default function SessionsLineChart({userAverageSessions}) {
   // formating data

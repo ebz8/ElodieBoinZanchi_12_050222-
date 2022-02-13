@@ -2,7 +2,7 @@ import "./Dashboard.scss"
 
 // components
 import UserHeader from "../UserHeader/UserHeader"
-import BarChart from "../Charts/BarChart/BarChart"
+import DailyBarChart from "../Charts/DailyBarChart/DailyBarChart"
 import SessionsLineChart from "../Charts/SessionsLineChart/SessionsLineChart"
 import SpiderRadarChart from "../Charts/RadarChart/SpiderRadarChart"
 import RadialBarChart from "../Charts/RadialBarChart/RadialBarChart"
@@ -15,7 +15,7 @@ export default function Dashboard(props) {
   const todayScore = user.todayScore * 100
   const userKeyData = user.keyData
   const userInfos = props.currentUser.userInfos
-  const userActivity = props.userActivity
+  const userDailyActivity = props.userActivity
   const userAverageSessions = props.userAverageSessions
   const userPerformance = props.userPerformance
 
@@ -25,8 +25,8 @@ export default function Dashboard(props) {
       {/* remplacer par composant Charts  */}
       <section className="user-stats-container">
         <ul className="stats">
-          <li className="stats-item barchart-container">
-            <BarChart userActivity={userActivity}/>
+          <li className="stats-item dailybarchart-container">
+            <DailyBarChart userDailyActivity={userDailyActivity}/>
           </li>
           <li className="stats-item sessionslinechart-container"> 
             <h3>Durée moyenne des <br />sessions</h3>

@@ -22,7 +22,6 @@
             .stats-item {
                 position: relative;
                 display: block;
-                overflow: hidden;
                 border-radius: 1rem;
 
                 &:nth-child(1) {
@@ -44,6 +43,10 @@
                 h3 {
                     opacity: .5;
                 }
+            }
+
+            .spiderradarchart-container {
+                background-color: $darkSecondaryColor;
             }
         }
 
