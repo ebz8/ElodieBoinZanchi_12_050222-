@@ -30,34 +30,58 @@ export default function SessionsLineChart({userAverageSessions}) {
       dayName: week[item.day]
     }
   })
-  // const week = ['', 'L', 'M', 'M', 'J', 'V', 'S', 'D', '']
+  
+  // formating data to lines escape the box
+  const sessions = [
+      { day: 0, sessionLength: 0, dayName : ' ' },
+      ...sessionsData,
+      { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
+    
+  ]
 
-  // <h3>Durée moyenne des sessions</h3>
-
+  const customTickAxis = ({ x, y, payload }) => {
+    return (
+      <g transform={`translate(${x}, ${y + 5})`}>
+        <text
+          fill="white"
+          textAnchor="middle"
+          fillOpacity="0.5"
+          x={0}
+          y={0}
+          dy={30}
+        >
+          {payload.value}
+        </text>
+    </g>
+    )
+  }
   return (
-    <ResponsiveContainer className="sessionslinechart-container" width="99%" height="100%">
-        <LineChart className="sessionslinechart" data={sessionsData}>
-        <XAxis
-          dataKey="dayNumber"
-          axisLine={false}
-          tickLine={false}
-        />
-        <YAxis hide={true} />
-        <Tooltip
-          content='dayNumber'
-          // allowEscapeViewBox={{ x: true }}
-        />
-        <Legend verticalAlign="top" height={-36}/>
-        <Line
-          dataKey="sessionLength"
-          type="monotone"
-          stroke="white"
-          strokeWidth="2"
-          strokeOpacity="0.8"
-          isAnimationActive={false}
-          dot={false}
-          name="Durée moyenne des sessions"
-        />
+    <ResponsiveContainer width="100%" height="100%">
+        <LineChart 
+          className="sessionslinechart"
+          data={sessions}
+          margin={{ top: 85, bottom: 40, left: -20, right: -20}}
+        >
+          <XAxis
+            dataKey='dayName'
+            axisLine={false}
+            tickLine={false}
+            tick={customTickAxis}
+          />
+          <YAxis hide={true} />
+          <Tooltip
+            content='dayName'
+            allowEscapeViewBox={{ x: true }}
+          />
+          <Line
+            dataKey="sessionLength"
+            type="basis"
+            stroke="white"
+            strokeWidth="2"
+            strokeOpacity="0.8"
+            isAnimationActive={false}
+            dot={false}
+          />
         </LineChart>
     </ResponsiveContainer>
   )

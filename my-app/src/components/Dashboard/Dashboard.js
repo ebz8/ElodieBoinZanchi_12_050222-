@@ -25,10 +25,20 @@ export default function Dashboard(props) {
       {/* remplacer par composant Charts  */}
       <section className="user-stats-container">
         <ul className="stats">
-          <li className="stats-item"><BarChart /></li>
-          <li className="stats-item"><SessionsLineChart userAverageSessions={userAverageSessions}/></li>
-          <li className="stats-item"><SpiderRadarChart userPerformance={userPerformance}/></li>
-          <li className="stats-item"><RadialBarChart todayScore={todayScore} /></li> 
+          <li className="stats-item barchart-container">
+            <BarChart userActivity={userActivity}/>
+          </li>
+          <li className="stats-item sessionslinechart-container"> 
+            <h3>Durée moyenne des <br />sessions</h3>
+            <SessionsLineChart userAverageSessions={userAverageSessions}/>
+          </li>
+          <li className="stats-item spiderradarchart-container">
+            <SpiderRadarChart userPerformance={userPerformance}/>
+          </li>
+          <li className="stats-item radialbarchart-container">
+            <h3>Score</h3>
+            <RadialBarChart todayScore={todayScore} />
+          </li> 
         </ul>
 
         {/* remplacer par composant Cards  */}

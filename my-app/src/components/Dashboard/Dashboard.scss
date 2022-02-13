@@ -20,12 +20,29 @@
             gap: 2rem;
 
             .stats-item {
+                position: relative;
                 display: block;
                 overflow: hidden;
                 border-radius: 1rem;
 
                 &:nth-child(1) {
                     grid-column : 1 / 4;
+                }
+
+                h3 {
+                    font-size: rem(15);
+                    font-weight: 500;
+                    position: absolute;    
+                    top: 2rem;
+                    left: 2rem;
+                }
+            }
+
+            .sessionslinechart-container {
+                color: white;
+
+                h3 {
+                    opacity: .5;
                 }
             }
         }

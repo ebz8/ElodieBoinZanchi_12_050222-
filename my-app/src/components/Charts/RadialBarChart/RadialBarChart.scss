@@ -2,10 +2,11 @@
 
 .radialbarchart {
     display: flex;
-    padding: 2rem;
     flex-flow: column wrap;
+    justify-content: center;
     width: rem(258);
     height: rem(263);
+    padding: 2rem;
     background-color: $lightSecondaryColor;
 
     h3 {
