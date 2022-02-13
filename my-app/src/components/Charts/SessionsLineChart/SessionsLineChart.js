@@ -7,8 +7,10 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend
+  Rectangle
 } from 'recharts'
+
+import { useState } from 'react'
 
 export default function SessionsLineChart({userAverageSessions}) {
   // formating data
@@ -38,7 +40,10 @@ export default function SessionsLineChart({userAverageSessions}) {
       { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
     
   ]
-
+  //////////////////////////////////////////////////////
+  ////////////////////// CUSTOMS  //////////////////////
+  //////////////////////////////////////////////////////
+  // days axis
   const customTickAxis = ({ x, y, payload }) => {
     return (
       <g transform={`translate(${x}, ${y + 5})`}>
@@ -55,11 +60,36 @@ export default function SessionsLineChart({userAverageSessions}) {
     </g>
     )
   }
+
+  // custom tool tip
+  const customToolTip = ({ payload, active }) => {
+    if (active) {
+      return (
+        <div className='tooltip'>
+          <p>{payload[0].value} min</p>
+        </div>
+      )
+    }
+    return null
+  }
+
+  // custom hover effect
+  const customHover = (hoveredData) => {
+    console.log(hoveredData)
+    
+    if (hoveredData && hoveredData.activePayload) {
+      const hoveredX = hoveredData.chartX
+      console.log(hoveredX)
+    }
+    
+  }
+
   return (
     <ResponsiveContainer width="100%" height="100%">
         <LineChart 
           className="sessionslinechart"
           data={sessions}
+          onMouseOver={customHover}
           margin={{ top: 85, bottom: 40, left: -20, right: -20}}
         >
           <XAxis
@@ -70,16 +100,17 @@ export default function SessionsLineChart({userAverageSessions}) {
           />
           <YAxis hide={true} />
           <Tooltip
-            content='dayName'
+            content={customToolTip}
             allowEscapeViewBox={{ x: true }}
+            cursor={false}
           />
           <Line
             dataKey="sessionLength"
-            type="basis"
+            type="monotone"
             stroke="white"
             strokeWidth="2"
             strokeOpacity="0.8"
-            isAnimationActive={false}
+            isAnimationActive={true}
             dot={false}
           />
         </LineChart>

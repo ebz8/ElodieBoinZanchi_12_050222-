@@ -25,24 +25,36 @@ export default function SpiderRadarChart({userPerformance}) {
     }
   })
 
+  // const customTick = ({ payload }) => {
+  //   return (
+  //     <g >
+  //       <text
+  //         fontSize= '12'
+  //         fontWeight= '500'
+  //         fill="white">
+  //         {payload.value}
+  //       </text>
+  //     </g>
+  //   )
+  // }
+
   ///// Custom chart by tweaking component props and passing in custom components ////
 
   return (
       <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
-        <RadarChart outerRadius={90} data={performanceData} cx="50%" cy="50%" >
+        <RadarChart outerRadius={80} data={performanceData} cx="50%" cy="50%" >
             <PolarGrid />
             <PolarAngleAxis
               dataKey='label'
               stroke="white"
-              dy={4}
-              
-              className='radarchart-label'
+              dy={4}  
               axisLine={false}
               tickLine={false}
+              // tick={customTick}
               tick={{ fontSize: 12, fontWeight: 500}}
               margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
               />
-            <Radar dataKey="value" fill="#FF0101" fillOpacity={0.8} />
+            <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
         </RadarChart>
       </ResponsiveContainer>
   )
