@@ -4,34 +4,26 @@
     margin-left: rem(91);
     padding: rem(30) rem(110);
     flex: 1 0 auto;
+    min-width: 0;
 
     .user-stats-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
+        min-width: 0;
+        
 
         .stats {
-            display: flex;
-            flex-flow: row wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             justify-content: space-between;
             grid-column: 1 / 4;
-            grid-row: 1;
 
+            
             .barchart {
                 margin-bottom: 2rem;
+                grid-column : 1 / 5;
             }
-
-            // .linechart {
-            //     flex: 1 1 0px
-            // }
-
-            // .radarchart {
-            //     flex: 1 1 0px
-            // }
-
-            // .radialbarchart {
-            //     flex: 1 1 0px
-            // }
 
         }
 

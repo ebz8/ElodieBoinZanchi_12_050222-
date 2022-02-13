@@ -1,0 +1,26 @@
+@import '../../variables.scss';
+
+.radarchart-container {
+    width: rem(258);
+    height: rem(263);
+    background-color: $darkSecondaryColor;
+    overflow: hidden;
+    border-radius: 1rem;
+
+    .radarchart-label {
+        color: white,
+    }
+
+    // remove lines from the middle to labels
+    .recharts-polar-grid-angle {
+        line {
+            display: none;
+        }
+    }
+
+    // doesnt work : need to be ameliorate
+    .recharts-polar-angle-axis-ticks {
+        display: block;
+        margin: 1rem;
+    }
+}
