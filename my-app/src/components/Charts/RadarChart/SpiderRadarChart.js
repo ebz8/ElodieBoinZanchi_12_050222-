@@ -33,7 +33,7 @@ export default function SpiderRadarChart({userPerformance}) {
         {...rest}
         verticalAnchor="middle"
         y={y + (y - cy) / 10}
-        x={x + (x - cx) / 10}
+        x={x + (x - cx) / 17}
         fontSize={12}
       >
         {payload.value}
