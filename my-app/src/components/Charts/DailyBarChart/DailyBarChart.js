@@ -13,6 +13,7 @@ import {
 export default function DailyBarChart({ userDailyActivity }) {
   ///////////// formating data ////////////////  
   const dailyActivity = userDailyActivity.data.sessions
+  // rajouter les numéros
   console.log(dailyActivity)
 
   return (

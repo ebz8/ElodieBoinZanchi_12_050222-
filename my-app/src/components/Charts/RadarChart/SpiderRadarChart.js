@@ -16,7 +16,7 @@ export default function SpiderRadarChart({userPerformance}) {
     5: "Vitesse",
     6: "Intensité",
   }
-
+  // add labels to performance data object
   const performanceData = dataUser.map((item) => {
     return {
       value: item.value,
@@ -24,34 +24,42 @@ export default function SpiderRadarChart({userPerformance}) {
       label: frenchLabels[item.kind]
     }
   })
+  // rotate to match figma mockup
+  const rotatePerformanceData = performanceData.reverse()
 
-  // const customTick = ({ payload }) => {
-  //   return (
-  //     <g >
-  //       <text
-  //         fontSize= '12'
-  //         fontWeight= '500'
-  //         fill="white">
-  //         {payload.value}
-  //       </text>
-  //     </g>
-  //   )
-  // }
+  const customTickAxis = ({ x, y, cx, cy, payload, ...rest}) => {
+    return (
+      <text
+        {...rest}
+        verticalAnchor="middle"
+        y={y + (y - cy) / 10}
+        x={x + (x - cx) / 10}
+        fontSize={12}
+      >
+        {payload.value}
+      </text>
+    );
+  }
 
   ///// Custom chart by tweaking component props and passing in custom components ////
 
   return (
       <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
-        <RadarChart outerRadius={80} data={performanceData} cx="50%" cy="50%" >
-            <PolarGrid />
+        <RadarChart outerRadius={80} data={rotatePerformanceData} cx="50%" cy="50%" >
+            <PolarGrid
+              gridType="polygon"
+              polarRadius={[10, 20, 40, 60, 80]}
+              stroke="#fff"
+              radialLines={false}
+            />
             <PolarAngleAxis
               dataKey='label'
               stroke="white"
               dy={4}  
               axisLine={false}
               tickLine={false}
-              // tick={customTick}
-              tick={{ fontSize: 12, fontWeight: 500}}
+              tick={customTickAxis}
+              // tick={{ fontSize: 12, fontWeight: 500}}
               margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
               />
             <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
