@@ -36,7 +36,7 @@ export default function RadialBarChart({ todayScore }) {
   const tauProgressArc = (value) =>
     scoreArcGenerator({
       // http://tauday.com/tau-manifesto
-      endAngle: 2 * Math.PI * value,
+      endAngle: -2 * Math.PI * value,
     });
 
   // placer ici tous les éléments qui ne nécessitent pas de chargement de données
