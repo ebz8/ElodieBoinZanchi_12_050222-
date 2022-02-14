@@ -15,9 +15,6 @@ import {
 /**
  * Daily Bar Chart component
  * @param {Array} userDailyActivity current user's "daily activity" data
- * @param {String} neutralColor charts' color pallet
- * @param {String} mainColor charts' color pallet
- * @param {String} secondaryColor charts' color pallet
  * @returns 
  */
 export default function DailyBarChart({ userDailyActivity }) {
