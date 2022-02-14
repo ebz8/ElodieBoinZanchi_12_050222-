@@ -5,4 +5,11 @@
     width: 100%;
     min-height: rem(320);
     background-color: $lightSecondaryColor;
+
+    .tooltip {
+        font-size: 13;
+        color: $neutralColor;
+        padding: 1rem .5rem;
+        background-color: $darkenMainColor;
+    }
 }

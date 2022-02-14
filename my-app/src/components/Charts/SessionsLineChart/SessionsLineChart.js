@@ -6,8 +6,7 @@ import {
   Line,
   XAxis,
   YAxis,
-  Tooltip,
-  Rectangle
+  Tooltip
 } from 'recharts'
 
 
@@ -36,7 +35,6 @@ export default function SessionsLineChart({userAverageSessions, neutralColor, ma
       { day: 0, sessionLength: 0, dayName : ' ' },
       ...sessionsData,
       { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
-    
   ]
   
   //////////////////////////////////////////////////////
@@ -72,7 +70,7 @@ export default function SessionsLineChart({userAverageSessions, neutralColor, ma
     return null
   }
 
-  // custom hover effect
+  // component for custom hover effect
   const CustomHover = ({points}) => {
     return (
       <rect
