@@ -16,7 +16,7 @@ export default function SpiderRadarChart({userPerformance}) {
     5: "Vitesse",
     6: "Intensité",
   }
-  // add labels to performance data object
+  //// add labels to performance data object ////
   const performanceData = dataUser.map((item) => {
     return {
       value: item.value,
@@ -24,24 +24,21 @@ export default function SpiderRadarChart({userPerformance}) {
       label: frenchLabels[item.kind]
     }
   })
-  // rotate to match figma mockup
+  //// rotate to match figma mockup ////
   const rotatePerformanceData = performanceData.reverse()
-
+  ///// Custom chart by tweaking component props and passing in custom components ////
   const customTickAxis = ({ x, y, cx, cy, payload, ...rest}) => {
     return (
       <text
-        {...rest}
-        verticalAnchor="middle"
+        {...rest}    
         y={y + (y - cy) / 10}
         x={x + (x - cx) / 17}
         fontSize={12}
       >
         {payload.value}
       </text>
-    );
+    )
   }
-
-  ///// Custom chart by tweaking component props and passing in custom components ////
 
   return (
       <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
@@ -59,7 +56,6 @@ export default function SpiderRadarChart({userPerformance}) {
               axisLine={false}
               tickLine={false}
               tick={customTickAxis}
-              // tick={{ fontSize: 12, fontWeight: 500}}
               margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
               />
             <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
