@@ -2,6 +2,7 @@
 
 .sessionslinechart-container {
     background-color: $mainColor;
+    overflow: hidden;
 
     .tooltip {
         font-size: rem(8);

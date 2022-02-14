@@ -10,7 +10,6 @@ import {
   Rectangle
 } from 'recharts'
 
-// import { useState } from 'react'
 
 export default function SessionsLineChart({userAverageSessions}) {
   // formating data
@@ -32,7 +31,6 @@ export default function SessionsLineChart({userAverageSessions}) {
       dayName: week[item.day]
     }
   })
-  
   // formating data to lines escape the box
   const sessions = [
       { day: 0, sessionLength: 0, dayName : ' ' },
@@ -40,6 +38,7 @@ export default function SessionsLineChart({userAverageSessions}) {
       { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
     
   ]
+  
   //////////////////////////////////////////////////////
   ////////////////////// CUSTOMS  //////////////////////
   //////////////////////////////////////////////////////
@@ -74,14 +73,16 @@ export default function SessionsLineChart({userAverageSessions}) {
   }
 
   // custom hover effect
-  const customHover = (hoveredData) => {
-    console.log(hoveredData)
-    
-    if (hoveredData && hoveredData.activePayload) {
-      const hoveredX = hoveredData.chartX
-      console.log(hoveredX)
-    }
-    
+  const CustomHover = ({points}) => {
+    return (
+      <rect
+        x={points[0].x}
+        y="0"
+        height='100%'
+        width="100%"
+        fill="rgba(0, 0, 0, 0.1)"
+       />  
+    ) 
   }
 
   return (
@@ -89,7 +90,6 @@ export default function SessionsLineChart({userAverageSessions}) {
         <LineChart 
           className="sessionslinechart"
           data={sessions}
-          onMouseOver={customHover}
           margin={{ top: 85, bottom: 40, left: -20, right: -20}}
         >
           <XAxis
@@ -101,8 +101,7 @@ export default function SessionsLineChart({userAverageSessions}) {
           <YAxis hide={true} />
           <Tooltip
             content={customToolTip}
-            allowEscapeViewBox={{ x: true }}
-            cursor={false}
+            cursor={<CustomHover />}
           />
           <Line
             dataKey="sessionLength"
