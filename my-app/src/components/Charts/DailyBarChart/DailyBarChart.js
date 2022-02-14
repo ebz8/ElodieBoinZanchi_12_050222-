@@ -51,6 +51,19 @@ export default function DailyBarChart({ userDailyActivity }) {
     return null
   }
 
+  const CustomLegend = ({ payload }) => {
+    console.log(payload)
+      return (
+        <ul className='legend'>
+        {
+          payload.map((entry, index) => (
+            <li key={`item-${index}`}>{entry.value}</li>
+          ))
+        }
+      </ul>
+      )
+  }
+
   return (
       <ResponsiveContainer className="dailybarchart" height="100%" width="100%">
         <BarChart
@@ -67,8 +80,10 @@ export default function DailyBarChart({ userDailyActivity }) {
             dataKey='dayAxis'
             tickMargin={12}
             tickLine={false}
-            strokeOpacity='0.3'
-            tick={{ fontSize: 14, fontWeight: 500, opacity: 0.7 }}
+            strokeOpacity='1'
+            strokeWidth="1.5"
+            stroke={variables.mediumdarksecondarycolor}
+            tick={{ fontSize: 14, fontWeight: 500, opacity: 1}}
             // padding={{ left: -50, right: -50 }}
           />
           <YAxis
@@ -80,7 +95,7 @@ export default function DailyBarChart({ userDailyActivity }) {
             tickLine={false}
             axisLine={false}
             tick={{ fontSize: 14, fontWeight: 500, opacity: 0.7 }}
-            dx={25}
+            dx={20}
           />
           <YAxis
             dataKey='calories'
@@ -89,6 +104,11 @@ export default function DailyBarChart({ userDailyActivity }) {
             tickCount='3'
             hide={true}     
           />
+          <Tooltip
+            content={<CustomTooltip />}
+            isAnimationActive={true}
+            cursor={{ opacity: 0.7 }}          
+          />
           <Bar
             dataKey="kilogram"
             fill={variables.secondaryColor}
@@ -96,26 +116,23 @@ export default function DailyBarChart({ userDailyActivity }) {
             barSize={7}
             radius={[10, 10, 0, 0]}
             legendType='circle'
+            name={`Poids (kg)`}
           />
           <Bar
             dataKey="calories"
-            fill={variables.maincolor}
+            fill={variables.darkenmaincolor}
             yAxisId='calories'
             barSize={7}
             radius={[10, 10, 0, 0]}
             legendType='circle'
+            name={`Calories brûlées (kCal)`}
           />
           <Legend
             verticalAlign="top"
-            align='right'
-            height={36}
+            content={<CustomLegend />}
             // tick={{ fontSize: 14, fontWeight: 500, opacity: 0.7 }}
           />
-          <Tooltip
-            content={<CustomTooltip />}
-            isAnimationActive={true}
-            cursor={{ opacity: 0.7 }}
-          />
+          
         </BarChart>
       </ResponsiveContainer>
   );

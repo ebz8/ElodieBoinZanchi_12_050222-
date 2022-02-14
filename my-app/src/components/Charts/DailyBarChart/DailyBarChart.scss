@@ -1,15 +1,54 @@
 @import '../../../variables.scss';
 
 .dailybarchart-container {
-    padding: rem(110) 2rem 2rem 2rem;
+    padding: rem(80) 2rem 1rem 2rem;
     width: 100%;
     min-height: rem(320);
     background-color: $lightSecondaryColor;
 
     .tooltip {
-        font-size: 13;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: rem(63);
+        font-size: rem(9);
         color: $neutralColor;
         padding: 1rem .5rem;
         background-color: $darkenMainColor;
+    }
+
+    .legend {
+        position: absolute;
+        display: flex;
+        gap: 1.5rem;
+        top: -3.4rem;
+        right: 1rem;
+        color: grey;
+        font-weight: 500;
+        font-size: rem(14);
+        
+        li {   
+            &:before {
+                content:"·";
+                padding-right: .3rem;
+                vertical-align:middle;
+                line-height:20px;
+                font-size: rem(70);
+            }
+
+            &:nth-child(1) {
+                &:before {
+                    color: $secondaryColor;
+                }
+            }
+
+            &:nth-child(2) {
+                &:before {
+                    color: $darkenMainColor;
+                }
+            }
+        }
+
     }
 }
