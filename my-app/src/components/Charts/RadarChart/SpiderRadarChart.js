@@ -4,7 +4,9 @@ import {
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({userPerformance}) {
+export default function SpiderRadarChart({ userPerformance }) {
+
+  const tooltipColor = "#FF0101"
   ///////////// formating data ////////////////  
   const dataUser = userPerformance.data.data
 
@@ -34,6 +36,7 @@ export default function SpiderRadarChart({userPerformance}) {
         y={y + (y - cy) / 10}
         x={x + (x - cx) / 17}
         fontSize={12}
+        fontWeight={500}
       >
         {payload.value}
       </text>
@@ -42,11 +45,11 @@ export default function SpiderRadarChart({userPerformance}) {
 
   return (
       <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
-        <RadarChart outerRadius={80} data={rotatePerformanceData} cx="50%" cy="50%" >
+        <RadarChart outerRadius={90} data={rotatePerformanceData} cx="50%" cy="50%" >
             <PolarGrid
               gridType="polygon"
-              polarRadius={[10, 20, 40, 60, 80]}
-              stroke="#fff"
+              polarRadius={[10, 20, 40, 65, 90]}
+              stroke="white"
               radialLines={false}
             />
             <PolarAngleAxis
@@ -56,9 +59,8 @@ export default function SpiderRadarChart({userPerformance}) {
               axisLine={false}
               tickLine={false}
               tick={customTickAxis}
-              margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-              />
-            <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+            />
+            <Radar dataKey="value" fill={tooltipColor} fillOpacity={0.7} />
         </RadarChart>
       </ResponsiveContainer>
   )

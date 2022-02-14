@@ -1,10 +1,1 @@
 @import '../../../variables.scss';
-
-.radarchart-container {
-    // remove lines from the middle to labels
-    .recharts-polar-grid-angle {
-        line {
-            display: none;
-        }
-    }
-}
