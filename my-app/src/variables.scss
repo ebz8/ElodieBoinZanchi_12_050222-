@@ -23,3 +23,19 @@ $html-font-size: 16px;@function stripUnit($value) {
 @function rem($pxValue) {
     @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
 }
+
+// config webpack to use variables in react components
+:export {
+    maincolor: $mainColor;
+    darkenmaincolor: $darkenMainColor;
+    neutralcolor: $neutralColor;
+    secondarycolor: $secondaryColor;
+    lightsecondarycolor: $lightSecondaryColor;
+    mediumsecondarycolor: $mediumSecondaryColor;
+    mediumdarksecondarycolor: $mediumDarkSecondaryColor;
+    darksecondarycolor: $darkSecondaryColor;
+    caloriescolor: $caloriesColor;
+    proteinscolor: $proteinsColor;
+    glucidscolor: $glucidsColor;
+    lipidscolor: $lipidsColor;
+}

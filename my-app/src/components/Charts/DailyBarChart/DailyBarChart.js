@@ -1,4 +1,5 @@
 import './DailyBarChart.scss'
+import variables from '../../../variables.scss';
 
 import {
   Bar,
@@ -19,7 +20,7 @@ import {
  * @param {String} secondaryColor charts' color pallet
  * @returns 
  */
-export default function DailyBarChart({ userDailyActivity, neutralColor, mainColor, secondaryColor }) {
+export default function DailyBarChart({ userDailyActivity }) {
  //////////////////////////////////////////////
   ///////////// formating data ////////////////  
   //////////////////////////////////////////////
@@ -93,7 +94,7 @@ export default function DailyBarChart({ userDailyActivity, neutralColor, mainCol
           />
           <Bar
             dataKey="kilogram"
-            fill={secondaryColor}
+            fill={variables.secondaryColor}
             yAxisId='kilogram'
             barSize={7}
             radius={[10, 10, 0, 0]}
@@ -101,7 +102,7 @@ export default function DailyBarChart({ userDailyActivity, neutralColor, mainCol
           />
           <Bar
             dataKey="calories"
-            fill={mainColor}
+            fill={variables.maincolor}
             yAxisId='calories'
             barSize={7}
             radius={[10, 10, 0, 0]}

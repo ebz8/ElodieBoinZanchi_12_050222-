@@ -1,10 +1,12 @@
 import './SpiderRadarChart.scss'
+import variables from '../../../variables.scss';
+
 import {
   ResponsiveContainer, RadarChart, PolarGrid,
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({ userPerformance, neutralColor, mainColor, secondaryColor }) {
+export default function SpiderRadarChart({ userPerformance }) {
 
   ///////////// formating data ////////////////  
   const dataUser = userPerformance.data.data
@@ -48,7 +50,7 @@ export default function SpiderRadarChart({ userPerformance, neutralColor, mainCo
             <PolarGrid
               gridType="polygon"
               polarRadius={[10, 20, 40, 65, 90]}
-              stroke={neutralColor}
+              stroke={variables.neutralcolor}
               radialLines={false}
             />
             <PolarAngleAxis
@@ -59,7 +61,7 @@ export default function SpiderRadarChart({ userPerformance, neutralColor, mainCo
               tickLine={false}
               tick={customTickAxis}
             />
-            <Radar dataKey="value" fill={mainColor} fillOpacity={0.7} />
+            <Radar dataKey="value" fill={variables.maincolor} fillOpacity={0.7} />
         </RadarChart>
       </ResponsiveContainer>
   )

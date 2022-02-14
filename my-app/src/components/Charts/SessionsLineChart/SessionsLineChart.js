@@ -1,4 +1,5 @@
 import './SessionsLineChart.scss'
+import variables from '../../../variables.scss';
 
 import {
   ResponsiveContainer,
@@ -10,7 +11,7 @@ import {
 } from 'recharts'
 
 
-export default function SessionsLineChart({userAverageSessions, neutralColor, mainColor, secondaryColor}) {
+export default function SessionsLineChart({ userAverageSessions }) {
   // formating data
   const userSessions = userAverageSessions.data.sessions
   const week = {
@@ -45,7 +46,7 @@ export default function SessionsLineChart({userAverageSessions, neutralColor, ma
     return (
       <g transform={`translate(${x}, ${y + 5})`}>
         <text
-          fill={neutralColor}
+          fill={variables.neutralcolor}
           textAnchor="middle"
           fillOpacity="0.5"
           x={0}
@@ -104,7 +105,7 @@ export default function SessionsLineChart({userAverageSessions, neutralColor, ma
           <Line
             dataKey="sessionLength"
             type="monotone"
-            stroke={neutralColor}
+            stroke={variables.neutralcolor}
             strokeWidth="2"
             strokeOpacity="0.8"
             isAnimationActive={true}

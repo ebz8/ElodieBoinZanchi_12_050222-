@@ -1,4 +1,5 @@
 import "./RadialBarChart.scss"
+import variables from '../../../variables.scss';
 
 // import { useEffect, useState } from "react"
 import * as d3 from "d3"
@@ -19,12 +20,7 @@ export default function RadialBarChart({ todayScore }) {
   const centerX = width / 2
   const centerY = height / 2
 
-  const colorCercle = "white"
-  const colorScore = "black"
-  const colorText = "grey"
-
   // progress bar
-  const colorBar = "red"
   const scoreBarOuterRadius = width / 2
   const scoreBarInnerRadius = width / 2 - barWidth
   const scoreArcGenerator = d3
@@ -51,7 +47,7 @@ export default function RadialBarChart({ todayScore }) {
             d={tauProgressArc(todayScore / 100)}
             cx={centerX}
             cy={centerY}
-            fill={colorBar}
+            fill={variables.maincolor}
           />
         </g>
 
@@ -59,13 +55,13 @@ export default function RadialBarChart({ todayScore }) {
           cx={centerX}
           cy={centerY}
           r={centerY - barWidth}
-          fill={colorCercle}
+          fill={variables.neutralcolor}
         />
 
         {/* score en pourcentages : à afficher une fois les données chargées */}
         <text
           className="chart-svg-score"
-          stroke={colorScore}
+          stroke={variables.secondarycolor}
           x={centerX}
           y={centerY - 10}
           textAnchor="middle"
@@ -77,7 +73,7 @@ export default function RadialBarChart({ todayScore }) {
 
         <text
           className="chart-svg-txt"
-          fill={colorText}
+          fill={variables.secondarycolor}
           x={centerX}
           y={centerY}
           textAnchor="middle"
@@ -89,7 +85,7 @@ export default function RadialBarChart({ todayScore }) {
 
         <text
           className="chart-svg-txt"
-          fill={colorText}
+          fill={variables.secondarycolor}
           x={centerX}
           y={centerY + 10}
           textAnchor="middle"
