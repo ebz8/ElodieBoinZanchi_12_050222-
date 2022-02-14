@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 
 
-export default function SessionsLineChart({userAverageSessions}) {
+export default function SessionsLineChart({userAverageSessions, neutralColor, mainColor, secondaryColor}) {
   // formating data
   const userSessions = userAverageSessions.data.sessions
   const week = {
@@ -47,7 +47,7 @@ export default function SessionsLineChart({userAverageSessions}) {
     return (
       <g transform={`translate(${x}, ${y + 5})`}>
         <text
-          fill="white"
+          fill={neutralColor}
           textAnchor="middle"
           fillOpacity="0.5"
           x={0}
@@ -84,7 +84,7 @@ export default function SessionsLineChart({userAverageSessions}) {
        />  
     ) 
   }
-
+  // rajouter ici la couleur du fond ?
   return (
     <ResponsiveContainer width="100%" height="100%">
         <LineChart 
@@ -106,7 +106,7 @@ export default function SessionsLineChart({userAverageSessions}) {
           <Line
             dataKey="sessionLength"
             type="monotone"
-            stroke="white"
+            stroke={neutralColor}
             strokeWidth="2"
             strokeOpacity="0.8"
             isAnimationActive={true}

@@ -1,7 +1,8 @@
 @import '../../../variables.scss';
 
 .dailybarchart-container {
+    padding: rem(110) 2rem 2rem 2rem;
     width: 100%;
-    height: rem(320);
+    min-height: rem(320);
     background-color: $lightSecondaryColor;
 }

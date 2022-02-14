@@ -13,43 +13,7 @@
         gap: 2rem;
         min-width: 0;
         
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            justify-content: space-between;
-            grid-column: 1 / 4;
-            gap: 2rem;
-
-            .stats-item {
-                position: relative;
-                display: block;
-                border-radius: 1rem;
-
-                &:nth-child(1) {
-                    grid-column : 1 / 4;
-                }
-
-                h3 {
-                    font-size: rem(15);
-                    font-weight: 500;
-                    position: absolute;    
-                    top: 2rem;
-                    left: 2rem;
-                }
-            }
-
-            .sessionslinechart-container {
-                color: white;
-
-                h3 {
-                    opacity: .5;
-                }
-            }
-
-            .spiderradarchart-container {
-                background-color: $darkSecondaryColor;
-            }
-        }
+        
 
         .cards {
             display: flex;

@@ -4,9 +4,8 @@ import {
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({ userPerformance }) {
+export default function SpiderRadarChart({ userPerformance, neutralColor, mainColor, secondaryColor }) {
 
-  const tooltipColor = "#FF0101"
   ///////////// formating data ////////////////  
   const dataUser = userPerformance.data.data
 
@@ -49,7 +48,7 @@ export default function SpiderRadarChart({ userPerformance }) {
             <PolarGrid
               gridType="polygon"
               polarRadius={[10, 20, 40, 65, 90]}
-              stroke="white"
+              stroke={neutralColor}
               radialLines={false}
             />
             <PolarAngleAxis
@@ -60,7 +59,7 @@ export default function SpiderRadarChart({ userPerformance }) {
               tickLine={false}
               tick={customTickAxis}
             />
-            <Radar dataKey="value" fill={tooltipColor} fillOpacity={0.7} />
+            <Radar dataKey="value" fill={mainColor} fillOpacity={0.7} />
         </RadarChart>
       </ResponsiveContainer>
   )
