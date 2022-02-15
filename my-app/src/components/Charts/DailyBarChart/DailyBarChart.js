@@ -52,7 +52,6 @@ export default function DailyBarChart({ userDailyActivity }) {
   }
 
   const CustomLegend = ({ payload }) => {
-    console.log(payload)
       return (
         <ul className='legend'>
         {
