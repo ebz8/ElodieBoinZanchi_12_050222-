@@ -1,13 +1,10 @@
 import "./RadialBarChart.scss"
 import variables from '../../../variables.scss';
 
-import { getUserInfos } from "../../../data/API/hooks/getUserInfos"
-
 import * as d3 from "d3"
 import PropTypes from "prop-types"
 
-export default function RadialBarChart({ userId }) {
-  const { isLoaded, error, data } = getUserInfos(userId)
+export default function RadialBarChart({ userScore }) {
   
   const width = 170
   const height = 170
@@ -30,15 +27,13 @@ export default function RadialBarChart({ userId }) {
       endAngle: -2 * Math.PI * value,
     });
 
-  return error ? <p>Erreur : {error}</p>
-      : !isLoaded ? <p>Chargement</p>
-      :
+  return (
     <div className="radialbarchart">
       <svg width={width} height={height} className="chart-svg">
         {/* progressive bar */}
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <path
-            d={tauProgressArc(data.score)}
+            d={tauProgressArc(userScore)}
             cx={centerX}
             cy={centerY}
             fill={variables.maincolor}
@@ -62,7 +57,7 @@ export default function RadialBarChart({ userId }) {
           fontSize="1.4em"
         >
           {" "}
-          {`${data.score * 100}%`}
+          {`${userScore * 100}%`}
         </text>
 
         <text
@@ -90,7 +85,7 @@ export default function RadialBarChart({ userId }) {
         </text>
       </svg>
     </div>
-
+  )
 }
 
 RadialBarChart.propTypes = {
