@@ -5,7 +5,7 @@ import * as d3 from "d3"
 import PropTypes from "prop-types"
 
 export default function RadialBarChart({ userScore }) {
-  
+
   const width = 170
   const height = 170
   const barWidth = 10

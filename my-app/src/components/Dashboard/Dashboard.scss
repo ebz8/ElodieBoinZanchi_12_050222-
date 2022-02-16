@@ -6,19 +6,27 @@
     margin-left: rem(91);
     padding: rem(30) rem(80);
     flex: 1 0 auto;
+    @media screen and (max-width: 1023px) {
+        padding: 1rem 3rem;
+    }
 
     .user-stats-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         min-width: 0;
-        
+
         .cards {
             display: flex;
             flex-flow: column wrap;
             justify-content: space-between;
             gap: 1rem;
             grid-column: 4;
+
+            @media screen and (max-width: 1023px) {
+                flex-flow: row nowrap;
+                grid-column: 1 / 4;
+            }
         }
     }
 }

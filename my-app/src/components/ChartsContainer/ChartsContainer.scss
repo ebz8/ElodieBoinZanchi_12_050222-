@@ -11,6 +11,8 @@
         position: relative;
         display: block;
         border-radius: 1rem;
+        min-height: rem(233);
+        min-width: rem(258);
 
         &:nth-child(1) {
             grid-column : 1 / 4;
