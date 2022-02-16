@@ -5,13 +5,13 @@ import SessionsLineChartContainer from '../SessionsLineChartContainer/SessionsLi
 import SpiderRadarChartContainer from '../SpiderRadarChartContainer/SpiderRadarChartContainer'
 import RadialBarChartContainer from '../RadialBarChartContainer/RadialBarChartContainer'
 
-export default function ChartsContainer({ userId, userInfos, userActivity, userPerformance, userAverageSessions }) {
+export default function ChartsContainer({ userInfos, userActivity, userPerformance, userAverageSessions }) {
 
   return (
     <ul className="stats">
       <DailyBarChartContainer userActivity={userActivity} />
       <SessionsLineChartContainer userAverageSessions={userAverageSessions} />
-      <SpiderRadarChartContainer userPerformance={userPerformance} userId={userId} />      
+      <SpiderRadarChartContainer userPerformance={userPerformance} />      
       <RadialBarChartContainer userInfos={userInfos} />    
     </ul>
   )

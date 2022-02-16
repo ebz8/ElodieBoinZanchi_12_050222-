@@ -100,8 +100,8 @@ export const useFetchData = (id) => {
                         fetchUserPerformance(id),
                         fetchUserAverageSessions(id)
                     ])
+                    .finally(() => setIsLoaded(true))
                 })
-                .finally(() => setIsLoaded(true))
       }, [id])
 
       return {
