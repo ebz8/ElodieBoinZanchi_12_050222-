@@ -7,7 +7,8 @@ export default class UserMapper{
             json.userInfos.firstName,
             json.userInfos.lastName,
             json.userInfos.age,
-            json.todayScore
+            json.todayScore,
+            json.keyData,
         )
     }
 }

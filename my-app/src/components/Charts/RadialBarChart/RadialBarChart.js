@@ -1,18 +1,19 @@
 import "./RadialBarChart.scss"
 import variables from '../../../variables.scss';
 
+import { getUserInfos } from "../../../data/API/hooks/getUserInfos"
+
 // import { useEffect, useState } from "react"
 import * as d3 from "d3"
 import PropTypes from "prop-types"
 
-export default function RadialBarChart({ todayScore }) {
-  // const [dayScore, setDayScore] = useState(null)
-
-  // useEffect(() => {
-  //   // ICI trouver le moyen d'utiliser setDayScore pour mettre à jour :
-  //   // le score en %
-  //   // la barre de progession
-  // }, [dayScore]);
+export default function RadialBarChart({ userId }) {
+  const { isLoaded, error, data } = getUserInfos(userId)
+  // const todayScore = data.score * 100
+  
+  if (isLoaded) {
+    console.log(data)
+  }
 
   const width = 170
   const height = 170
@@ -38,13 +39,15 @@ export default function RadialBarChart({ todayScore }) {
   // placer ici tous les éléments qui ne nécessitent pas de chargement de données
   // s'affichent avant le fetch
   // chargement des éléments interactifs D3 une fois le contenu chargé (useState sur todayScore)
-  return (
+  return error ? <p>Erreur : {error}</p>
+      : !isLoaded ? <p>Chargement</p>
+      :
     <div className="radialbarchart">
       <svg width={width} height={height} className="chart-svg">
         {/* progressive bar : à afficher une fois les données chargées */}
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <path
-            d={tauProgressArc(todayScore / 100)}
+            d={tauProgressArc(data.score)}
             cx={centerX}
             cy={centerY}
             fill={variables.maincolor}
@@ -68,7 +71,7 @@ export default function RadialBarChart({ todayScore }) {
           fontSize="1.4em"
         >
           {" "}
-          {`${todayScore}%`}
+          {`${data.score * 100}%`}
         </text>
 
         <text
@@ -96,7 +99,7 @@ export default function RadialBarChart({ todayScore }) {
         </text>
       </svg>
     </div>
-  );
+
 }
 
 RadialBarChart.propTypes = {

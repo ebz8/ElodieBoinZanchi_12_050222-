@@ -12,7 +12,6 @@ export default function UseFetch (url) {
               .then(
                 ({ data }) => {
                   setData(UserMapper.convertToUser(data))
-                  setData(data)
                   setError(null)
                 })
               .catch((err) => {

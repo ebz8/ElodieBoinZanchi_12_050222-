@@ -1,6 +1,8 @@
 import './DailyBarChart.scss'
 import variables from '../../../variables.scss';
 
+import userDailyActivity from '../../../data/mockUser/12/activity.json'
+
 import {
   Bar,
   BarChart,
@@ -17,7 +19,7 @@ import {
  * @param {Array} userDailyActivity current user's "daily activity" data
  * @returns 
  */
-export default function DailyBarChart({ userDailyActivity }) {
+export default function DailyBarChart({ userId }) {
  //////////////////////////////////////////////
   ///////////// formating data ////////////////  
   //////////////////////////////////////////////

@@ -1,6 +1,8 @@
 import './SessionsLineChart.scss'
 import variables from '../../../variables.scss';
 
+import userAverageSessions from '../../../data/mockUser/12/average-sessions.json'
+
 import {
   ResponsiveContainer,
   LineChart,
@@ -11,7 +13,7 @@ import {
 } from 'recharts'
 
 
-export default function SessionsLineChart({ userAverageSessions }) {
+export default function SessionsLineChart({ userId }) {
   // formating data
   const userSessions = userAverageSessions.data.sessions
   const week = {

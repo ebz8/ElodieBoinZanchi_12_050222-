@@ -1,12 +1,15 @@
 import './SpiderRadarChart.scss'
 import variables from '../../../variables.scss';
 
+import userPerformance from '../../../data/mockUser/12/performance.json'
+
+
 import {
   ResponsiveContainer, RadarChart, PolarGrid,
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({ userPerformance }) {
+export default function SpiderRadarChart({ userId }) {
 
   ///////////// formating data ////////////////  
   const dataUser = userPerformance.data.data

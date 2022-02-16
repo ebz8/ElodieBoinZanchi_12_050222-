@@ -5,25 +5,24 @@ import VerticalNav from '../../components/VerticalNav/VerticalNav.js'
 import Dashboard from '../../components/Dashboard/Dashboard.js'
 
 import { useParams } from 'react-router-dom'
-import { getUserInfos } from '../../data/API/hooks/getUserInfos'
 
 // mock datas
-import user from '../../data/mockUser/12.json'
 import userActivity from '../../data/mockUser/12/activity.json'
 import userAverageSessions from '../../data/mockUser/12/average-sessions.json'
 import userPerformance from '../../data/mockUser/12/performance.json'
 
 
 export default function Profil() {
-
-  const currentUser = user.data
+  // get the current User
+  const params = useParams()
+  const userId = params.id
 
    return (
     <>
       <HorizontalNav />
       <VerticalNav />
       <Dashboard
-        currentUser={currentUser}
+        userId={userId}
         userActivity={userActivity}
         userAverageSessions={userAverageSessions}
         userPerformance={userPerformance}

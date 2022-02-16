@@ -1,6 +1,6 @@
 import UseFetch from './UseFetch'
-import { configURL } from '../../config'
+import { configUrl } from '../../config'
 
 export const getUserInfos = (id) => {
-    return UseFetch(configURL.dev.USER_INFOS(id))
+    return UseFetch(configUrl.USER_INFOS(id))
   }
