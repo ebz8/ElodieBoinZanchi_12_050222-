@@ -6,12 +6,6 @@ import Dashboard from '../../components/Dashboard/Dashboard.js'
 
 import { useParams } from 'react-router-dom'
 
-// mock datas
-import userActivity from '../../data/mockUser/12/activity.json'
-import userAverageSessions from '../../data/mockUser/12/average-sessions.json'
-import userPerformance from '../../data/mockUser/12/performance.json'
-
-
 export default function Profil() {
   // get the current User
   const params = useParams()
@@ -21,12 +15,7 @@ export default function Profil() {
     <>
       <HorizontalNav />
       <VerticalNav />
-      <Dashboard
-        userId={userId}
-        userActivity={userActivity}
-        userAverageSessions={userAverageSessions}
-        userPerformance={userPerformance}
-      />
+      <Dashboard userId={userId} />
     </>
   )
 }
