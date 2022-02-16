@@ -13,16 +13,24 @@ export default function Profil() {
   const params = useParams()
   const userId = params.id
 
-  const { isLoaded, userInfos, userActivity, userPerformance, error} = useFetchData(userId)
-  console.log(userInfos, userActivity, userPerformance)
+  const { isLoaded, error,
+    userInfos, userActivity, userPerformance, userAverageSessions } = useFetchData(userId)
+  console.log(userInfos, userActivity, userPerformance, userAverageSessions)
 
-  // ici faire un appel global des fetch avant de charger la page ?
 
-   return (
+  return error ? <p>Erreur : {error}</p>
+  : !isLoaded ? <p>Chargement</p>
+  :
     <>
       <HorizontalNav />
       <VerticalNav />
-      <Dashboard userId={userId} />
+      <Dashboard   
+        userId={userId}
+        userInfos={userInfos}
+        userActivity={userActivity}
+        userPerformance={userPerformance}
+        userAverageSessions={userAverageSessions}
+      />
     </>
-  )
+  
 }

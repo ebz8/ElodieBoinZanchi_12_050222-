@@ -6,7 +6,7 @@ import {
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({ userPerformances }) {
+export default function SpiderRadarChart({ userPerformance }) {
 
   ///////////// formating data ////////////////  
   const frenchLabels = {
@@ -18,7 +18,7 @@ export default function SpiderRadarChart({ userPerformances }) {
     6: "Intensité",
   }
   //// add labels to performance data object ////
-  const performanceData = userPerformances.data.map((item) => {
+  const performanceData = userPerformance.data.map((item) => {
     return {
       value: item.value,
       kind: item.kind,

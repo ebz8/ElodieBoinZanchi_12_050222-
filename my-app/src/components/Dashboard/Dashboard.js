@@ -7,7 +7,7 @@ import InfoCardsContainer from "../InfoCardsContainer/InfoCardsContainer"
 
 import { getUserInfos } from "../../data/API/hooks/getUserInfos"
 
-export default function Dashboard({userId}) {
+export default function Dashboard({userId, userInfos, userActivity, userPerformance, userAverageSessions}) {
 
   const { isLoaded, error, data } = getUserInfos(userId)
   
@@ -17,8 +17,14 @@ export default function Dashboard({userId}) {
     <main className="dashboard">
       <UserHeader firstName={data?.firstName} />
       <section className="user-stats-container">
-        <ChartsContainer userId={userId}/>
-        <InfoCardsContainer userKeyData={data?.keyData}/>    
+        <ChartsContainer
+          userInfos={userInfos}
+          userActivity={userActivity}
+          userPerformance={userPerformance}
+          userAverageSessions={userAverageSessions}
+          userId={userId} 
+        />
+        <InfoCardsContainer userKeyData={userInfos.keyData}/>    
       </section>
     </main>
   
