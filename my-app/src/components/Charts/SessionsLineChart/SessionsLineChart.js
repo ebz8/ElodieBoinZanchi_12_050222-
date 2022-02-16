@@ -1,8 +1,6 @@
 import './SessionsLineChart.scss'
 import variables from '../../../variables.scss';
 
-import userAverageSessions from '../../../data/mockUser/12/average-sessions.json'
-
 import {
   ResponsiveContainer,
   LineChart,
@@ -13,9 +11,8 @@ import {
 } from 'recharts'
 
 
-export default function SessionsLineChart({ userId }) {
+export default function SessionsLineChart({ averageSessions }) {
   // formating data
-  const userSessions = userAverageSessions.data.sessions
   const week = {
     1: "L",
     2: "M",
@@ -26,14 +23,14 @@ export default function SessionsLineChart({ userId }) {
     7: "D"
   }
 
-  const sessionsData = userSessions.map((item) => {
+  const sessionsData = averageSessions.map((item) => {
     return {
       sessionLength: item.sessionLength,
       dayNumber: item.day,
       dayName: week[item.day]
     }
   })
-  // formating data to lines escape the box
+  // formating data for lines to escape the box
   const sessions = [
       { day: 0, sessionLength: 0, dayName : ' ' },
       ...sessionsData,

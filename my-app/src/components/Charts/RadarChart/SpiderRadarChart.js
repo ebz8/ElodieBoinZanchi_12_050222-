@@ -1,19 +1,14 @@
 import './SpiderRadarChart.scss'
 import variables from '../../../variables.scss';
 
-import userPerformance from '../../../data/mockUser/12/performance.json'
-
-
 import {
   ResponsiveContainer, RadarChart, PolarGrid,
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({ userId }) {
+export default function SpiderRadarChart({ userPerformances }) {
 
   ///////////// formating data ////////////////  
-  const dataUser = userPerformance.data.data
-
   const frenchLabels = {
     1: "Cardio",
     2: "Energie",
@@ -23,7 +18,7 @@ export default function SpiderRadarChart({ userId }) {
     6: "Intensité",
   }
   //// add labels to performance data object ////
-  const performanceData = dataUser.map((item) => {
+  const performanceData = userPerformances.data.map((item) => {
     return {
       value: item.value,
       kind: item.kind,

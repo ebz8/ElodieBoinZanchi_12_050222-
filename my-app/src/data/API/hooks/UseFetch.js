@@ -1,7 +1,7 @@
-import UserMapper from '../mappers/UserMapper'
+// import UserMapper from '../mappers/UserMapper'
 import { useEffect, useState  } from 'react'
 
-export default function UseFetch (url) {
+export default function UseFetch (url, mapper) {
     const [isLoaded, setIsLoaded] = useState(false)
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
@@ -11,7 +11,7 @@ export default function UseFetch (url) {
               .then(res => res.json())
               .then(
                 ({ data }) => {
-                  setData(UserMapper.convertToUser(data))
+                  setData(mapper(data))
                   setError(null)
                 })
               .catch((err) => {
@@ -19,7 +19,7 @@ export default function UseFetch (url) {
                   setError(err)
               })
               .finally(() => setIsLoaded(true))
-      }, [url])
+      }, [url, mapper])
 
       return { isLoaded, data, error }
 }

@@ -13,13 +13,13 @@ const configUrl = {
         return `${currentUrl}/${id}.json`
     },
     USER_ACTIVITY(id) {
-        return `${currentUrl}/${id}/userActivity.json`
+        return `${currentUrl}/${id}/activity.json`
     },
-    USER_SESSIONS(id) {
-        return `${currentUrl}/${id}/userAverageSession.json`
+    USER_AVERAGESESSIONS(id) {
+        return `${currentUrl}/${id}/average-sessions.json`
     },
     USER_PERFORMANCE(id) {
-        return `${currentUrl}/${id}/userPerformance.json`
+        return `${currentUrl}/${id}/performance.json`
     },
 }
 export { configUrl }

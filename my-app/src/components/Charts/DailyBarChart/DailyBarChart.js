@@ -1,8 +1,6 @@
 import './DailyBarChart.scss'
 import variables from '../../../variables.scss';
 
-import userDailyActivity from '../../../data/mockUser/12/activity.json'
-
 import {
   Bar,
   BarChart,
@@ -16,15 +14,14 @@ import {
 
 /**
  * Daily Bar Chart component
- * @param {Array} userDailyActivity current user's "daily activity" data
+ * @param {Object} userActivity current UserActivity from fetch data
  * @returns 
  */
-export default function DailyBarChart({ userId }) {
+export default function DailyBarChart({ userActivity }) {
  //////////////////////////////////////////////
   ///////////// formating data ////////////////  
   //////////////////////////////////////////////
-  const dailyActivity = userDailyActivity.data.sessions
-  const dailyData = dailyActivity.map((item, index) => {
+  const dailyData = userActivity.sessions.map((item, index) => {
     return {
       dayAxis: index + 1,
       kilogram: item.kilogram,
@@ -71,7 +68,6 @@ export default function DailyBarChart({ userId }) {
           width='100%'
           data={dailyData}
           barGap={8}
-          // barCategoryGap="35%"
         >
           <CartesianGrid
             vertical={false}
@@ -131,7 +127,6 @@ export default function DailyBarChart({ userId }) {
           <Legend
             verticalAlign="top"
             content={<CustomLegend />}
-            // tick={{ fontSize: 14, fontWeight: 500, opacity: 0.7 }}
           />
           
         </BarChart>

@@ -3,18 +3,12 @@ import variables from '../../../variables.scss';
 
 import { getUserInfos } from "../../../data/API/hooks/getUserInfos"
 
-// import { useEffect, useState } from "react"
 import * as d3 from "d3"
 import PropTypes from "prop-types"
 
 export default function RadialBarChart({ userId }) {
   const { isLoaded, error, data } = getUserInfos(userId)
-  // const todayScore = data.score * 100
   
-  if (isLoaded) {
-    console.log(data)
-  }
-
   const width = 170
   const height = 170
   const barWidth = 10
@@ -36,15 +30,12 @@ export default function RadialBarChart({ userId }) {
       endAngle: -2 * Math.PI * value,
     });
 
-  // placer ici tous les éléments qui ne nécessitent pas de chargement de données
-  // s'affichent avant le fetch
-  // chargement des éléments interactifs D3 une fois le contenu chargé (useState sur todayScore)
   return error ? <p>Erreur : {error}</p>
       : !isLoaded ? <p>Chargement</p>
       :
     <div className="radialbarchart">
       <svg width={width} height={height} className="chart-svg">
-        {/* progressive bar : à afficher une fois les données chargées */}
+        {/* progressive bar */}
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <path
             d={tauProgressArc(data.score)}
@@ -61,7 +52,7 @@ export default function RadialBarChart({ userId }) {
           fill={variables.neutralcolor}
         />
 
-        {/* score en pourcentages : à afficher une fois les données chargées */}
+        {/* score % */}
         <text
           className="chart-svg-score"
           stroke={variables.secondarycolor}
