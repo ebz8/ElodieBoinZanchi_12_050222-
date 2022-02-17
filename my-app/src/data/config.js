@@ -1,29 +1,29 @@
-// ici créer variable d'environnement pour switcher facilement du mock au vrai call API
-// ensuite crer des fonctions pour chaque objet à récupérer avec getNomObjet
-// à appeler dans le.s composant.s concerné.s
-// endpoints urls : prod = API / dev = MOCK API
+/**
+ *  Allows to switch easily between different database urls (called in useFetch custom hook)
+ *  By configuring currentUrl constant
+ */
 
-const urlAPI = 'http://localhost:3000/user'
-const urlMockAPI = '/mockUser'
-// select the current call url between urlAPI and urlMockAPI
-const currentUrl = urlMockAPI
+    // const urlAPI = 'http://localhost:3000/user'
+    const urlMockAPI = '/mockUser'
 
-const configUrl = {
-    USER_INFOS(id) {
-        return `${currentUrl}/${id}.json`
-    },
-    USER_ACTIVITY(id) {
-        return `${currentUrl}/${id}/activity.json`
-    },
-    USER_AVERAGESESSIONS(id) {
-        return `${currentUrl}/${id}/average-sessions.json`
-    },
-    USER_PERFORMANCE(id) {
-        return `${currentUrl}/${id}/performance.json`
-    },
-}
-export { configUrl }
+    const currentUrl = urlMockAPI
 
+    const configUrl = {
+        USER_INFOS(id) {
+            return `${currentUrl}/${id}.json`
+        },
+        USER_ACTIVITY(id) {
+            return `${currentUrl}/${id}/activity.json`
+        },
+        USER_AVERAGESESSIONS(id) {
+            return `${currentUrl}/${id}/average-sessions.json`
+        },
+        USER_PERFORMANCE(id) {
+            return `${currentUrl}/${id}/performance.json`
+        },
+    }
+
+    export { currentUrl, configUrl }
 
 
 // const configURL = {

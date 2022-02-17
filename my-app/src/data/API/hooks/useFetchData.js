@@ -1,30 +1,19 @@
 import { useState, useEffect } from "react"
 
+import { configUrl, currentUrl } from "../../config"
+
 import UserMapper from "../mappers/UserMapper"
 import UserActivityMapper from "../mappers/UserActivityMapper"
 import UserPerformanceMapper from "../mappers/UserPerformanceMapper"
 import UserAverageSessionsMapper from "../mappers/UserAverageSessionsMapper"
 
-
+/**
+ * 
+ * Chaining promises to connect NodeJS backend and get the data back
+ * @param id current user id get with useParams
+ * @returns userInfos 
+ */
 export const useFetchData = (id) => {
-    // const urlAPI = 'http://localhost:3000/user'
-    const urlMockAPI = '/mockUser'
-
-    const currentUrl = urlMockAPI
-    const configUrl = {
-        USER_INFOS(id) {
-            return `${currentUrl}/${id}.json`
-        },
-        USER_ACTIVITY(id) {
-            return `${currentUrl}/${id}/activity.json`
-        },
-        USER_AVERAGESESSIONS(id) {
-            return `${currentUrl}/${id}/average-sessions.json`
-        },
-        USER_PERFORMANCE(id) {
-            return `${currentUrl}/${id}/performance.json`
-        },
-    }
 
     const [isLoaded, setIsLoaded] = useState(false)
     const [error, setError] = useState(null)
@@ -102,9 +91,10 @@ export const useFetchData = (id) => {
                     ])
                     .finally(() => setIsLoaded(true))
                 })
-      }, [id])
+    }, [id])
 
-      return {
+
+    return {
         userInfos,
         userActivity,
         userPerformance,
