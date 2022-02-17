@@ -2,7 +2,7 @@
 [Openclassrooms Front-End P12](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react) | VERSION 1.0
 
 made with Create React App, Sass, Recharts, JsDoc & better-doc
-![image]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) ![image]({https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB}) ![image]({https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white}) 
+![image](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![image](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white) 
 ## Demonstration
 
 - ici lien vers le [déploiement Netlify] avec badge
