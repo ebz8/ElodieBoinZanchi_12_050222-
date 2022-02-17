@@ -1,5 +1,5 @@
 # SportSee
-[Openclassrooms Front-End P12](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react) | VERSION 1.0 | 
+[Openclassrooms Front-End](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react) | P12 | VERSION 1.0 | 
 
  ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![image](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white) ![image](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
@@ -22,16 +22,6 @@ git clone https://github.com/ebz8/P9-front-end-dashboard.git
 ```
 
 2. Install dependencies :
-
-```sh
-# NPM
-npm install
-
-# Yarn
-yarn install
-```
-
-Inside this back-end repository, install dependencies :
 
 ```sh
 # NPM
