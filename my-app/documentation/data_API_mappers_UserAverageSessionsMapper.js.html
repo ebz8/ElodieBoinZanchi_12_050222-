@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: data/API/mappers/UserAverageSessionsMapper.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,32 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: data/API/mappers/UserAverageSessionsMapper.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import UserAverageSessions from '../models/UserAverageSessions'
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+/**
+ * Mapper getting json data and converting them to new instances of UserAverageSessions
+ * 
+ * @property {object} json fetched data
+ */
+export default class UserAverageSessionsMapper{
+    static convertToUserAverageSessions(json) {
+        return new UserAverageSessions (
+            json.userId,
+            json.sessions
+        )
+    }
+}</code></pre>
+        </article>
+    </section>
 
 
 

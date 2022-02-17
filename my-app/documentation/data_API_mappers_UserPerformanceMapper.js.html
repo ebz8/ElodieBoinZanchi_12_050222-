@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: data/API/mappers/UserPerformanceMapper.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,33 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: data/API/mappers/UserPerformanceMapper.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import UserPerformance from '../models/UserPerformance'
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+/**
+ * Mapper getting json data and converting them to new instances of UserPerformance
+ * 
+ * @property {object} json fetched data
+ */
+export default class UserPerformanceMapper{
+    static convertToUserPerformance (json) {
+        return new UserPerformance (
+            json.userId,
+            json.kind,
+            json.data,
+        )
+    }
+}</code></pre>
+        </article>
+    </section>
 
 
 

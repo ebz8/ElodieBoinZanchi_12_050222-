@@ -10,9 +10,9 @@ import UserAverageSessionsMapper from "../mappers/UserAverageSessionsMapper"
 
 /**
  * 
- * Chaining promises to connect NodeJS backend (with configUrl import) and get the data
- * @param id current user id get with useParams
- * @returns {object} with userInfos, userActivity, userPerformance, userAverageSessions and error, isLoaded status
+ * Custom hook function : chaining promises to connect NodeJS backend (with configUrl import) and getting data with states
+ * @param {string} id current user id get with useParams
+ * @returns {object} userInfos, userActivity, userPerformance, userAverageSessions & error / isLoaded status
  */
 export const useFetch = (id) => {
 

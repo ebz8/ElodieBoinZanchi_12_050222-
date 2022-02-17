@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: data/API/models/UserPerformance.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,32 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: data/API/models/UserPerformance.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Class to create an UserPerformance
+ * 
+ * @property {number} id user's id number
+ * @property {object} kind kinds of performance (cardio, energy, endurance, strength, speed, intensity)
+ * @property {array} data user's performance data (contains objects)
+ */
+export default class UserPerformance {
+    /** @constructor */
+    constructor(id, kind, data) {
+        this.userId = id
+        this.kind = kind
+        this.data = data
+    }
+}</code></pre>
+        </article>
+    </section>
 
 
 
