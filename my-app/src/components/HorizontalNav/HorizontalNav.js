@@ -7,7 +7,7 @@ export default function HorizontalNav(props) {
 
   return (
     <header className="horizontal-nav">
-      <Link to={`/user/${props.userId}/`}>
+      <Link to={`/`}>
         <Logo alt="SportSee" className="logo"/>
       </Link>
 
