@@ -3,23 +3,23 @@
  *  By configuring currentUrl constant
  */
 
-    // const urlAPI = 'http://localhost:3000/user'
+    const urlAPI = 'http://localhost:3000/user'
     const urlMockAPI = '/mockUser'
 
-    const currentUrl = urlMockAPI
+    const currentUrl = urlAPI
 
     const configUrl = {
         USER_INFOS(id) {
-            return `${currentUrl}/${id}.json`
+            return urlAPI === currentUrl ? `${currentUrl}/${id}` : `${currentUrl}/${id}.json`
         },
         USER_ACTIVITY(id) {
-            return `${currentUrl}/${id}/activity.json`
+            return urlAPI === currentUrl ? `${currentUrl}/${id}/activity` : `${currentUrl}/${id}/activity.json`
         },
         USER_AVERAGESESSIONS(id) {
-            return `${currentUrl}/${id}/average-sessions.json`
+            return urlAPI === currentUrl ? `${currentUrl}/${id}/average-sessions` : `${currentUrl}/${id}/average-sessions.json`
         },
         USER_PERFORMANCE(id) {
-            return `${currentUrl}/${id}/performance.json`
+            return urlAPI === currentUrl ? `${currentUrl}/${id}/performance` : `${currentUrl}/${id}/performance.json`
         },
     }
 

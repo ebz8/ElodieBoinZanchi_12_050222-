@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-import { configUrl, currentUrl } from "../../config"
+import { configUrl } from "../../config"
 
 import UserMapper from "../mappers/UserMapper"
 import UserActivityMapper from "../mappers/UserActivityMapper"
@@ -25,73 +25,62 @@ export const useFetch = (id) => {
     const [userAverageSessions, setUserAverageSessions] = useState(null)
 
     
-    const fetchUserInfos = (id) => {
-        return fetch(configUrl.USER_INFOS(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserInfos(UserMapper.convertToUser(data))
-                console.log('fetch user infos done')
-            })
-            .catch((err) => {
-                console.log(`fetch user infos : ${err}`)
-                setError(err)
-            })
+    const fetchUserInfos = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_INFOS(id))
+            const { data } = await res.json()
+            setUserInfos(UserMapper.convertToUser(data))
+            console.log('fetch user infos done')
+        } catch (err) {
+            console.log(`fetch user infos : ${err}`)
+            setError(err)
+        }
     }
 
-    const fetchUserActivity = (id) => {
-        return fetch(configUrl.USER_ACTIVITY(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserActivity(UserActivityMapper.convertToUserActivity(data))
-                console.log('fetch user activity done')
-            })
-            .catch((err) => {
-                console.log(`fetch user activity : ${err}`)
-                setError(err)
-            })
+    const fetchUserActivity = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_ACTIVITY(id))
+            const { data } = await res.json()
+            setUserActivity(UserActivityMapper.convertToUserActivity(data))
+            console.log('fetch user activity done')
+        } catch (err) {
+            console.log(`fetch user activity : ${err}`)
+            setError(err)
+        }
     }
 
-    const fetchUserPerformance = (id) => {
-        return fetch(configUrl.USER_PERFORMANCE(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserPerformance(UserPerformanceMapper.convertToUserPerformance(data))
-                console.log('fetch user performance done')
-            })
-            .catch((err) => {
-                console.log(`fetch user performance : ${err}`)
-                setError(err)
-            })
+    const fetchUserPerformance = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_PERFORMANCE(id))
+            const { data } = await res.json()
+            setUserPerformance(UserPerformanceMapper.convertToUserPerformance(data))
+            console.log('fetch user performance done')
+        } catch (err) {
+            console.log(`fetch user performance : ${err}`)
+            setError(err)
+        }
     }
 
-    const fetchUserAverageSessions = (id) => {
-        return fetch(configUrl.USER_AVERAGESESSIONS(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserAverageSessions(UserAverageSessionsMapper.convertToUserAverageSessions(data))
-                console.log('fetch user average sessions done')
-            })
-            .catch((err) => {
-                console.log(`fetch user average sessions : ${err}`)
-                setError(err)
-            })
+    const fetchUserAverageSessions = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_AVERAGESESSIONS(id))
+            const { data } = await res.json()
+            setUserAverageSessions(UserAverageSessionsMapper.convertToUserAverageSessions(data))
+            console.log('fetch user average sessions done')
+        } catch (err) {
+            console.log(`fetch user average sessions : ${err}`)
+            setError(err)
+        }
     }
 
     useEffect(() => {
-            fetch(currentUrl)
-                .then(function() {
-                    Promise.all([
-                        fetchUserInfos(id),
-                        fetchUserActivity(id),
-                        fetchUserPerformance(id),
-                        fetchUserAverageSessions(id)
-                    ])
-                    .finally(() => setIsLoaded(true))
-                })
+        Promise.all([
+            fetchUserInfos(id),
+            fetchUserActivity(id),
+            fetchUserPerformance(id),
+            fetchUserAverageSessions(id)
+        ])
+        .finally(() => setIsLoaded(true))
     }, [id])
 
 
