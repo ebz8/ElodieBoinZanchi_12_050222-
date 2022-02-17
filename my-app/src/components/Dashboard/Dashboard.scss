@@ -1,13 +1,11 @@
 @import '../../variables.scss';
 
 .dashboard {
-    width: 100%;
-    // min-width: 1023px;
-    margin-left: rem(91);
-    padding: rem(30) rem(80);
+    grid-area: main;
+    padding: rem(30) rem(50);
     flex: 1 0 auto;
     @media screen and (max-width: 1023px) {
-        padding: 1rem 3rem;
+        padding: 1rem 2rem;
     }
 
     .user-stats-container {

@@ -13,7 +13,7 @@ export default function VerticalNav() {
         <NavIcon icon="bodybuilding"/>
       </ul>
       
-      <span>Copyright, SportSee {new Date().getFullYear()}</span>
+      <p>Copyright, SportSee {new Date().getFullYear()}</p>
     </aside>
   )
 }

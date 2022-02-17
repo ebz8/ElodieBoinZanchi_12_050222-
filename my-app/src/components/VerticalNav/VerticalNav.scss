@@ -3,8 +3,8 @@
 $barWidth : rem(117);
 
 .vertical-nav {
-    z-index: -1;
-    position: fixed;
+    position: relative;
+    grid-area: nav;
     top:0;
     bottom: 0;
     display: flex;
@@ -22,12 +22,11 @@ $barWidth : rem(117);
         gap: 1rem;
     }
 
-    span {
-        display: block;
-        width: 100%;
+    p {
         position: absolute;
-        bottom: rem(80);
-        white-space: nowrap;
-        transform: rotate(-90deg);
+        bottom: 2rem;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        justify-self: flex-end;
     }
 }
