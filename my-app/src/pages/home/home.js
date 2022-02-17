@@ -1,9 +1,20 @@
 import './Home.scss'
 
+import HorizontalNav from '../../components/HorizontalNav/HorizontalNav'
+import VerticalNav from '../../components/VerticalNav/VerticalNav'
+
+import { NavLink } from 'react-router-dom'
+
 export default function Home() {
   return (
     <div>
-      hello
+      <HorizontalNav />
+      <VerticalNav />
+      {/* fake navigation just for testing */}
+      <div className="testnavigation">
+        <NavLink to="/user/12">User 12</NavLink>
+        <NavLink to="/user/18">User 18</NavLink>
+      </div>
     </div>
   )
 }
