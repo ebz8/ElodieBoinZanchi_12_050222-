@@ -7,7 +7,7 @@ import UserHeader from "../UserHeader/UserHeader"
 import ChartsContainer from "../ChartsContainer/ChartsContainer"
 import InfoCardsContainer from "../InfoCardsContainer/InfoCardsContainer"
 
-export default function Dashboard({userId, userInfos, userActivity, userPerformance, userAverageSessions}) {
+function Dashboard({userId, userInfos, userActivity, userPerformance, userAverageSessions}) {
 
   return (
     <main className="dashboard">
@@ -26,6 +26,7 @@ export default function Dashboard({userId, userInfos, userActivity, userPerforma
   )
 }
 
+
 Dashboard.propTypes = {
   userId: PropTypes.string,
   userInfos: PropTypes.object,
@@ -33,3 +34,5 @@ Dashboard.propTypes = {
   userPerformance: PropTypes.object,
   userAverageSessions: PropTypes.object,
 }
+
+export default Dashboard
