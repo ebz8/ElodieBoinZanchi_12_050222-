@@ -1,11 +1,11 @@
 /**
  * Class to create an UserPerformance
- * 
+ * @class
  * @property {number} id user's id number
  * @property {object} kind kinds of performance (cardio, energy, endurance, strength, speed, intensity)
  * @property {array} data user's performance data (contains objects)
  */
-export default class UserPerformance {
+class UserPerformance {
     /** @constructor */
     constructor(id, kind, data) {
         this.userId = id
@@ -13,3 +13,5 @@ export default class UserPerformance {
         this.data = data
     }
 }
+
+export default UserPerformance

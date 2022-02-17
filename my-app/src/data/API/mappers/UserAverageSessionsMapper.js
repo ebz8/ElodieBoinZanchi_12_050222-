@@ -2,10 +2,10 @@ import UserAverageSessions from '../models/UserAverageSessions'
 
 /**
  * Mapper getting json data and converting them to new instances of UserAverageSessions
- * 
+ * @class
  * @property {object} json fetched data
  */
-export default class UserAverageSessionsMapper{
+class UserAverageSessionsMapper {
     static convertToUserAverageSessions(json) {
         return new UserAverageSessions (
             json.userId,
@@ -13,3 +13,5 @@ export default class UserAverageSessionsMapper{
         )
     }
 }
+
+export default UserAverageSessionsMapper

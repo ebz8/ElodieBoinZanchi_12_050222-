@@ -2,10 +2,10 @@ import UserPerformance from '../models/UserPerformance'
 
 /**
  * Mapper getting json data and converting them to new instances of UserPerformance
- * 
+ * @class
  * @property {object} json fetched data
  */
-export default class UserPerformanceMapper{
+class UserPerformanceMapper{
     static convertToUserPerformance (json) {
         return new UserPerformance (
             json.userId,
@@ -14,3 +14,5 @@ export default class UserPerformanceMapper{
         )
     }
 }
+
+export default UserPerformanceMapper

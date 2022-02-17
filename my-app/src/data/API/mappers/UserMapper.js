@@ -2,10 +2,10 @@ import User from '../models/User'
 
 /**
  * Mapper getting json data and converting them to new instances of User
- * 
+ * @class
  * @property {object} json fetched data
  */
-export default class UserMapper{
+class UserMapper{
     static convertToUser (json) {
         return new User (
             json.id,
@@ -17,3 +17,5 @@ export default class UserMapper{
         )
     }
 }
+
+export default UserMapper
