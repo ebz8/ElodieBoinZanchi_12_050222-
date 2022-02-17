@@ -1,12 +1,33 @@
 import './SpiderRadarChart.scss'
-import variables from '../../../variables.scss';
+import variables from '../../../variables.scss'
+
+import PropTypes from 'prop-types'
 
 import {
   ResponsiveContainer, RadarChart, PolarGrid,
   PolarAngleAxis, Radar
 } from 'recharts'
 
-export default function SpiderRadarChart({ userPerformance }) {
+  /**
+   * Custom Tick axis by tweaking component props
+   * @param {*} param0 
+   * @returns 
+   */
+  const customTickAxis = ({ x, y, cx, cy, payload, ...rest}) => {
+    return (
+      <text
+        {...rest}    
+        y={y + (y - cy) / 10}
+        x={x + (x - cx) / 17}
+        fontSize={12}
+        fontWeight={500}
+      >
+        {payload.value}
+      </text>
+    )
+  }
+  
+function SpiderRadarChart({ userPerformance }) {
 
   ///////////// formating data ////////////////  
   const frenchLabels = {
@@ -27,20 +48,7 @@ export default function SpiderRadarChart({ userPerformance }) {
   })
   //// rotate to match figma mockup ////
   const rotatePerformanceData = performanceData.reverse()
-  ///// Custom chart by tweaking component props and passing in custom components ////
-  const customTickAxis = ({ x, y, cx, cy, payload, ...rest}) => {
-    return (
-      <text
-        {...rest}    
-        y={y + (y - cy) / 10}
-        x={x + (x - cx) / 17}
-        fontSize={12}
-        fontWeight={500}
-      >
-        {payload.value}
-      </text>
-    )
-  }
+
 
   return (
       <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
@@ -64,3 +72,19 @@ export default function SpiderRadarChart({ userPerformance }) {
       </ResponsiveContainer>
   )
 }
+
+
+SpiderRadarChart.propTypes = {
+  userPerformance: PropTypes.object.isRequired
+}
+
+customTickAxis.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  cx: PropTypes.number,
+  cy: PropTypes.number,
+  payload: PropTypes.object,
+  rest: PropTypes.object,
+}
+
+export default SpiderRadarChart

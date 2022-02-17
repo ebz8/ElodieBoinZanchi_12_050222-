@@ -1,5 +1,7 @@
 import "./Dashboard.scss"
 
+import PropTypes from 'prop-types'
+
 // components
 import UserHeader from "../UserHeader/UserHeader"
 import ChartsContainer from "../ChartsContainer/ChartsContainer"
@@ -22,4 +24,12 @@ export default function Dashboard({userId, userInfos, userActivity, userPerforma
       </section>
     </main>
   )
+}
+
+Dashboard.propTypes = {
+  userId: PropTypes.string,
+  userInfos: PropTypes.object,
+  userActivity: PropTypes.object,
+  userPerformance: PropTypes.object,
+  userAverageSessions: PropTypes.object,
 }

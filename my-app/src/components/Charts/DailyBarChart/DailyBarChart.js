@@ -1,5 +1,7 @@
+import variables from '../../../variables.scss'
 import './DailyBarChart.scss'
-import variables from '../../../variables.scss';
+
+import PropTypes from 'prop-types'
 
 import {
   Bar,
@@ -12,33 +14,14 @@ import {
   Legend
 } from 'recharts'
 
-/**
- * Daily Bar Chart component
- * @param {Object} userActivity current UserActivity from fetch data
- * @returns 
- */
-export default function DailyBarChart({ userActivity }) {
- //////////////////////////////////////////////
-  ///////////// formating data ////////////////  
-  //////////////////////////////////////////////
-  const dailyData = userActivity.sessions.map((item, index) => {
-    return {
-      dayAxis: index + 1,
-      kilogram: item.kilogram,
-      calories: item.calories
-    }
-  })
 
-////////////////////////////////////////////////////////////////////////////////
-// Custom chart by tweaking component props and passing in custom components //
-////////////////////////////////////////////////////////////////////////////////
   /**
-   * Custom Tooltip component on hover
+   * Custom Tooltip by tweaking component props and passing in custom component
    * @param {Array} payload [0] :  Yaxis 1 (kg), [1] : Yaxis 2 (kCal)
    * @param {Boolean} active active state
    * @returns {ReactElement|null} React Component if active, or null
    */
-  const CustomTooltip = ({ payload, active }) => {
+   const CustomTooltip = ({ payload, active }) => {
     if (active) {
       return (
         <div className='tooltip'>
@@ -51,16 +34,31 @@ export default function DailyBarChart({ userActivity }) {
   }
 
   const CustomLegend = ({ payload }) => {
-      return (
-        <ul className='legend'>
-        {
-          payload.map((entry, index) => (
-            <li key={`item-${index}`}>{entry.value}</li>
-          ))
-        }
-      </ul>
-      )
-  }
+    return (
+      <ul className='legend'>
+      {
+        payload.map((entry, index) => (
+          <li key={`item-${index}`}>{entry.value}</li>
+        ))
+      }
+    </ul>
+    )
+}
+
+/**
+ * Daily Bar Chart component with formated dailyData from userActivity
+ * @param {Object} userActivity current UserActivity from fetch data
+ * @returns 
+ */
+function DailyBarChart({ userActivity }) {
+  // formatting data
+  const dailyData = userActivity.sessions.map((item, index) => {
+    return {
+      dayAxis: index + 1,
+      kilogram: item.kilogram,
+      calories: item.calories
+    }
+  })
 
   return (
       <ResponsiveContainer className="dailybarchart" height="100%" width="100%">
@@ -131,5 +129,21 @@ export default function DailyBarChart({ userActivity }) {
           
         </BarChart>
       </ResponsiveContainer>
-  );
+  )
 }
+
+
+DailyBarChart.propTypes = {
+  userActivity: PropTypes.object.isRequired
+}
+
+CustomTooltip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool
+}
+
+CustomLegend.propTypes = {
+  payload: PropTypes.array
+}
+
+export default DailyBarChart

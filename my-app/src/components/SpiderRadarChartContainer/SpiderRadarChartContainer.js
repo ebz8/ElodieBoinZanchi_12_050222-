@@ -1,4 +1,4 @@
-import SpiderRadarChart from '../Charts/RadarChart/SpiderRadarChart'
+import SpiderRadarChart from '../Charts/SpiderRadarChart/SpiderRadarChart'
 
 export default function SpiderRadarChartContainer({userPerformance}) {
     

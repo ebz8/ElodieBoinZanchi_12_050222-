@@ -1,5 +1,7 @@
 import './SessionsLineChart.scss'
-import variables from '../../../variables.scss';
+import variables from '../../../variables.scss'
+
+import PropTypes from 'prop-types'
 
 import {
   ResponsiveContainer,
@@ -11,35 +13,6 @@ import {
 } from 'recharts'
 
 
-export default function SessionsLineChart({ averageSessions }) {
-  // formating data
-  const week = {
-    1: "L",
-    2: "M",
-    3: "M",
-    4: "J",
-    5: "V",
-    6: "S",
-    7: "D"
-  }
-
-  const sessionsData = averageSessions.map((item) => {
-    return {
-      sessionLength: item.sessionLength,
-      dayNumber: item.day,
-      dayName: week[item.day]
-    }
-  })
-  // formating data for lines to escape the box
-  const sessions = [
-      { day: 0, sessionLength: 0, dayName : ' ' },
-      ...sessionsData,
-      { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
-  ]
-  
-  //////////////////////////////////////////////////////
-  ////////////////////// CUSTOMS  //////////////////////
-  //////////////////////////////////////////////////////
   // days axis
   const customTickAxis = ({ x, y, payload }) => {
     return (
@@ -69,6 +42,38 @@ export default function SessionsLineChart({ averageSessions }) {
     }
     return null
   }
+
+
+function SessionsLineChart({ averageSessions }) {
+  // formating data
+  const week = {
+    1: "L",
+    2: "M",
+    3: "M",
+    4: "J",
+    5: "V",
+    6: "S",
+    7: "D"
+  }
+
+  const sessionsData = averageSessions.map((item) => {
+    return {
+      sessionLength: item.sessionLength,
+      dayNumber: item.day,
+      dayName: week[item.day]
+    }
+  })
+  // formating data for lines to escape the box
+  const sessions = [
+      { day: 0, sessionLength: 0, dayName : ' ' },
+      ...sessionsData,
+      { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
+  ]
+  
+  //////////////////////////////////////////////////////
+  ////////////////////// CUSTOMS  //////////////////////
+  //////////////////////////////////////////////////////
+
 
   // component for custom hover effect
   const CustomHover = ({points}) => {
@@ -114,3 +119,21 @@ export default function SessionsLineChart({ averageSessions }) {
     </ResponsiveContainer>
   )
 }
+
+
+SessionsLineChart.propTypes = {
+  averageSessions: PropTypes.array.isRequired
+}
+
+customTickAxis.propTypes = {
+  payload: PropTypes.array,
+  x: PropTypes.number,
+  y: PropTypes.number
+}
+
+customToolTip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool
+}
+
+export default SessionsLineChart
