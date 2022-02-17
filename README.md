@@ -1,15 +1,15 @@
 # SportSee
 [Openclassrooms Front-End P12](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react) | VERSION 1.0
 
-- ici lien des outils du projet (create react app, recharts, sass, jsdoc, better-doc)
-
+made with Create React App, Sass, Recharts, JsDoc & better-doc
+![image]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) ![image]({https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB}) ![image]({https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white}) 
 ## Demonstration
 
 - ici lien vers le [déploiement Netlify] avec badge
 
 ### Prerequisites
 
-- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
+- [NodeJS (**v.12.18**)](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ### 1 | Back-end
@@ -73,4 +73,4 @@ yarn install
 npm start
 ```
 
-Front-end is now rendered at URL `http://localhost:3001` with mocked data. If you want to switch to the real backend data, go to `my-app/src/data/config.js` [here](https://github.com/ebz8/ElodieBoinZanchi_12_050222-/blob/9cfa6384b9b182fb9f3ff46fb5185f03a0860b4d/my-app/src/data/config.js) and set `currentUrl` constant from `urlMockAPI` to `urlAPI`.
+4. Front-end is now rendered at URL `http://localhost:3001` with mocked data. If you want to switch to real backend data, go to `my-app/src/data/config.js` [(this file)](https://github.com/ebz8/ElodieBoinZanchi_12_050222-/blob/9cfa6384b9b182fb9f3ff46fb5185f03a0860b4d/my-app/src/data/config.js) and set `currentUrl` constant from `urlMockAPI` to `urlAPI`.
