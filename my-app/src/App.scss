@@ -3,33 +3,8 @@
 //
 // resets
 //
-
 *{
   box-sizing: border-box;
-}
-
-// .App {
-//   display: flex;
-//   flex-flow: row wrap;
-//   font-family: Roboto;
-//   position: relative;
-//   width: 100%;
-//   height: 100%;
-//   min-height: 100vh;
-// }
-
-.App {
-  display: grid;
-  grid-template-columns: repeat(11, 1fr);
-  grid-template-rows: rem(91) 1fr;
-  grid-template-areas:
-    "hd hd hd hd hd hd hd hd hd hd hd"
-    "nav main main main main main main main main main main";
-  font-family: Roboto;
-  width: 100%;
-  min-height: 100vh;
-  height: 100%;
-
 }
 
 h1, h2, h3, h4, h5, p{
@@ -65,4 +40,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+//
+// app general layout
+//
+.App {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: rem(91) 1fr;
+  grid-template-areas:
+    "hd hd hd hd hd hd hd hd hd hd hd"
+    "nav main main main main main main main main main main";
+  font-family: Roboto;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+
 }
