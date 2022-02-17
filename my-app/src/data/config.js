@@ -6,7 +6,7 @@
     const urlAPI = 'http://localhost:3000/user'
     const urlMockAPI = '/mockUser'
 
-    const currentUrl = urlAPI
+    const currentUrl = urlMockAPI
 
     const configUrl = {
         USER_INFOS(id) {
