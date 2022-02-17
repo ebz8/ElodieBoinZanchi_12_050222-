@@ -2,15 +2,19 @@ import "./Dashboard.scss"
 
 import PropTypes from 'prop-types'
 
-// components
 import UserHeader from "../UserHeader/UserHeader"
 import ChartsContainer from "../ChartsContainer/ChartsContainer"
 import InfoCardsContainer from "../InfoCardsContainer/InfoCardsContainer"
 
+
 /**
- * 
- * @param {string} userId current user id 
- * @returns 
+ * Component containing all current user's dashboard sections
+ * @param {string} userId (props) current user id get with useParams from Profil
+ * @param {object} userInfos (props) current user's infos from fetch
+ * @param {object} userActivity (props) current user's activity from fetch
+ * @param {object} userPerformance (props) current user's perfromance from fetch
+ * @param {object} userAverageSessions (props) current user's average sessions from fetch
+ * @returns {reactElement}
  */
 function Dashboard({userId, userInfos, userActivity, userPerformance, userAverageSessions}) {
 
