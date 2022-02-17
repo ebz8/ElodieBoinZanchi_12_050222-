@@ -21,7 +21,7 @@
             gap: 1rem;
             grid-column: 4;
 
-            @media screen and (max-width: 1023px) {
+            @media screen and (max-width: 1328px) {
                 flex-flow: row nowrap;
                 grid-column: 1 / 4;
             }

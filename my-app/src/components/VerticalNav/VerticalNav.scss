@@ -3,7 +3,8 @@
 $barWidth : rem(117);
 
 .vertical-nav {
-    position: relative;
+    z-index: -1;
+    position: fixed;
     grid-area: nav;
     top:0;
     bottom: 0;
@@ -23,10 +24,15 @@ $barWidth : rem(117);
     }
 
     p {
+        font-size: rem(12);
         position: absolute;
         bottom: 2rem;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         justify-self: flex-end;
+
+        @media screen and (max-width: 1023px) {
+            font-size: rem(8);
+        }
     }
 }
