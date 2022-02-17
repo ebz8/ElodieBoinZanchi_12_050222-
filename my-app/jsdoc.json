@@ -12,6 +12,14 @@
     "opts": {                      
         "destination": "./documentation",          
         "recurse": true,
-        "template": "node_modules/better-docs"
+        "plugins": ["node_modules/better-docs/typescript"],
+        "templates": {
+          "better-docs": {
+            "name": "My React components"
+          }
+        },
+        "source": {
+            "includePattern": "\\.(jsx|js|ts|tsx)$"
+        }
     }
 }

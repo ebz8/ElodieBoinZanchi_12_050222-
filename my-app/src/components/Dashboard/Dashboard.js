@@ -7,6 +7,11 @@ import UserHeader from "../UserHeader/UserHeader"
 import ChartsContainer from "../ChartsContainer/ChartsContainer"
 import InfoCardsContainer from "../InfoCardsContainer/InfoCardsContainer"
 
+/**
+ * 
+ * @param {string} userId current user id 
+ * @returns 
+ */
 function Dashboard({userId, userInfos, userActivity, userPerformance, userAverageSessions}) {
 
   return (

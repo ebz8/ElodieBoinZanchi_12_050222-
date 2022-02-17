@@ -1,7 +1,7 @@
 import './Profil.scss'
 
 import { useParams } from 'react-router-dom'
-import { useFetchData } from '../../data/API/hooks/useFetchData'
+import { useFetch } from '../../data/API/hooks/useFetch'
 
 import HorizontalNav from '../../components/HorizontalNav/HorizontalNav.js'
 import VerticalNav from '../../components/VerticalNav/VerticalNav.js'
@@ -20,7 +20,7 @@ export default function Profil() {
     userActivity,
     userPerformance,
     userAverageSessions
-  } = useFetchData(userId)
+  } = useFetch(userId)
 
   return error ? <p>Erreur : {error}</p>
   : !isLoaded ? <p>Chargement</p>
