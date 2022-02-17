@@ -1,2 +1,76 @@
-# ElodieBoinZanchi_12_050222-
-P12 de la formation front-end OpenClassrooms
+# SportSee
+[Openclassrooms Front-End P12](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react) | VERSION 1.0
+
+- ici lien des outils du projet (create react app, recharts, sass, jsdoc, better-doc)
+
+## Demonstration
+
+- ici lien vers le [déploiement Netlify] avec badge
+
+### Prerequisites
+
+- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### 1 | Back-end
+
+1. Download or clone the back-end's repository :
+
+```sh
+git clone https://github.com/ebz8/P9-front-end-dashboard.git
+```
+
+2. Install dependencies :
+
+```sh
+# NPM
+npm install
+
+# Yarn
+yarn install
+```
+
+Inside this back-end repository, install dependencies :
+
+```sh
+# NPM
+npm install
+
+# Yarn
+yarn install
+```
+
+3. Launch back-end on port 3000 (default port) :
+
+```sh
+# NPM
+npm run start
+
+# Yarn
+yarn dev
+```
+
+### 1 | Front-end
+
+1. Clone this repository :
+
+`git clone https://github.com/ebz8/ElodieBoinZanchi_12_050222-.git`
+
+2. Install dependencies:
+
+```sh
+# NPM
+npm install
+
+# Yarn
+yarn install
+```
+
+3. Launch front-end on port 3001 :
+
+```sh
+# NPM
+npm start
+```
+
+Front-end is now rendered at URL `http://localhost:3001` with mocked data. If you want to switch to the real backend data, go to `my-app/src/data/config.js` [here](https://github.com/ebz8/ElodieBoinZanchi_12_050222-/blob/9cfa6384b9b182fb9f3ff46fb5185f03a0860b4d/my-app/src/data/config.js) and set `currentUrl` constant from `urlMockAPI` to `urlAPI`.
