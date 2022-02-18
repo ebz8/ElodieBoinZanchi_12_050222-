@@ -1,8 +1,11 @@
 import './VerticalNav.scss'
 
-
 import NavIcon from '../../components/NavIcon/NavIcon.js'
 
+/**
+ * Aside navbar with nav icons
+ * @returns {reactElement}
+ */
 export default function VerticalNav() {
   return (
     <aside className="vertical-nav">

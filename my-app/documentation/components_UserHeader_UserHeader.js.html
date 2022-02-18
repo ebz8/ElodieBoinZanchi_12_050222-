@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: UserPerformanceMapper</title>
+    <title>JSDoc: Source: components/UserHeader/UserHeader.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,189 +17,44 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: UserPerformanceMapper</h1>
+    <h1 class="page-title">Source: components/UserHeader/UserHeader.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>UserPerformanceMapper<span class="signature">()</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Mapper getting json data and converting them to new instances of UserPerformance</p></div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="UserPerformanceMapper"><span class="type-signature"></span>new UserPerformanceMapper<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>json</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>fetched data</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="data_API_mappers_UserPerformanceMapper.js.html">data/API/mappers/UserPerformanceMapper.js</a>, <a href="data_API_mappers_UserPerformanceMapper.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import './UserHeader.scss'
+
+import PropTypes from 'prop-types'
+
+/**
+ * Dashboard's header with welcome message and user's name
+ * @param {string} firstName user's first name from fetch data
+ * @returns {reactElement}
+ */
+function UserHeader({ firstName }) {
+
+  const welcomeMsg = 'Félicitations ! Vous avez explosé vos objectifs hier 👏'
+  
+  return (
+    &lt;section className="user-header">
+      &lt;h1>Bonjour &lt;strong>{firstName}&lt;/strong>&lt;/h1>
+      &lt;p>{welcomeMsg}&lt;/p>
+    &lt;/section>
+  )
+}
+
+UserHeader.propTypes = {
+  firstName: PropTypes.string
+}
+
+export default UserHeader
+</code></pre>
+        </article>
+    </section>
 
 
 

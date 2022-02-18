@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/DailyBarChart/DailyBarChart.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/DailyBarChart/DailyBarChart.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import variables from '../../variables.scss'
+import './DailyBarChart.scss'
+
+import PropTypes from 'prop-types'
+
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+  Legend
+} from 'recharts'
+
+
+  /**
+   * Custom Tooltip by tweaking component props and passing in custom component
+   * @param {Array} payload [0] :  Yaxis 1 (kg), [1] : Yaxis 2 (kCal)
+   * @param {Boolean} active active state
+   * @returns {ReactElement|null} React Component if active, or null
+   */
+   const CustomTooltip = ({ payload, active }) => {
+    if (active) {
+      return (
+        &lt;div className='tooltip'>
+          &lt;p>{payload[0].value}kg&lt;/p>
+          &lt;p>{payload[1].value}Kcal&lt;/p>
+        &lt;/div>
+      )
+    }
+    return null
+  }
+
+  const CustomLegend = ({ payload }) => {
+    return (
+      &lt;ul className='legend'>
+      {
+        payload.map((entry, index) => (
+          &lt;li key={`item-${index}`}>{entry.value}&lt;/li>
+        ))
+      }
+    &lt;/ul>
+    )
+}
+
+/**
+ * Daily Bar Chart component with formated dailyData from userActivity
+ * @param {Object} userActivity current UserActivity from fetch data
+ * @returns {reactElement}
+ */
+function DailyBarChart({ userActivity }) {
+  // formatting data
+  const dailyData = userActivity.sessions.map((item, index) => {
+    return {
+      dayAxis: index + 1,
+      kilogram: item.kilogram,
+      calories: item.calories
+    }
+  })
+
+  return (
+      &lt;ResponsiveContainer className="dailybarchart" height="100%" width="100%">
+        &lt;BarChart
+          width='100%'
+          data={dailyData}
+          barGap={8}
+        >
+          &lt;CartesianGrid
+            vertical={false}
+            strokeDasharray={3}
+          />
+          &lt;XAxis
+            dataKey='dayAxis'
+            tickMargin={12}
+            tickLine={false}
+            strokeOpacity='1'
+            strokeWidth="1.5"
+            stroke={variables.mediumdarksecondarycolor}
+            tick={{ fontSize: 14, fontWeight: 500, opacity: 1}}
+            // padding={{ left: -50, right: -50 }}
+          />
+          &lt;YAxis
+            dataKey='kilogram'
+            yAxisId="kilogram"
+            domain={['dataMin - 1', 'dataMax + 2']}
+            tickCount='3'
+            orientation='right'
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 14, fontWeight: 500, opacity: 0.7 }}
+            dx={20}
+          />
+          &lt;YAxis
+            dataKey='calories'
+            domain={[0, 'dataMax + 50']}
+            yAxisId="calories"
+            tickCount='3'
+            hide={true}     
+          />
+          &lt;Tooltip
+            content={&lt;CustomTooltip />}
+            isAnimationActive={true}
+            cursor={{ opacity: 0.7 }}          
+          />
+          &lt;Bar
+            dataKey="kilogram"
+            fill={variables.secondaryColor}
+            yAxisId='kilogram'
+            barSize={7}
+            radius={[10, 10, 0, 0]}
+            legendType='circle'
+            name={`Poids (kg)`}
+          />
+          &lt;Bar
+            dataKey="calories"
+            fill={variables.darkenmaincolor}
+            yAxisId='calories'
+            barSize={7}
+            radius={[10, 10, 0, 0]}
+            legendType='circle'
+            name={`Calories brûlées (kCal)`}
+          />
+          &lt;Legend
+            verticalAlign="top"
+            content={&lt;CustomLegend />}
+          />
+          
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer>
+  )
+}
+
+
+DailyBarChart.propTypes = {
+  userActivity: PropTypes.object.isRequired
+}
+
+CustomTooltip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool
+}
+
+CustomLegend.propTypes = {
+  payload: PropTypes.array
+}
+
+export default DailyBarChart</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="UserActivity.html">UserActivity</a></li><li><a href="UserActivityMapper.html">UserActivityMapper</a></li><li><a href="UserAverageSessions.html">UserAverageSessions</a></li><li><a href="UserAverageSessionsMapper.html">UserAverageSessionsMapper</a></li><li><a href="UserMapper.html">UserMapper</a></li><li><a href="UserPerformance.html">UserPerformance</a></li><li><a href="UserPerformanceMapper.html">UserPerformanceMapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomHover">CustomHover</a></li><li><a href="global.html#customTickAxis">customTickAxis</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#customToolTip">customToolTip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#InfoCardsContainer">InfoCardsContainer</a></li><li><a href="global.html#NavIcon">NavIcon</a></li><li><a href="global.html#RadialBarChart">RadialBarChart</a></li><li><a href="global.html#SessionsLineChart">SessionsLineChart</a></li><li><a href="global.html#SpiderRadarChart">SpiderRadarChart</a></li><li><a href="global.html#urlAPI">urlAPI</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#UserHeader">UserHeader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Feb 18 2022 09:53:42 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

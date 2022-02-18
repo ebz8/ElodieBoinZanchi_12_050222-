@@ -2,8 +2,13 @@ import PropTypes from "prop-types"
 
 import InfoCard from "../InfoCard/InfoCard"
 
-
-export default function InfoCardsContainer({ userKeyData }) {
+/**
+ * Info cards container
+ * Takes current user's key data to show different cards with corresponding infos & style
+ * @param {object} userKeyData userkey data from fetch
+ * @returns {reactElement}
+ */
+function InfoCardsContainer({ userKeyData }) {
 
   return (
     <ul className="cards">
@@ -37,3 +42,5 @@ export default function InfoCardsContainer({ userKeyData }) {
 InfoCardsContainer.propTypes = {
   userKeyData: PropTypes.object
 }
+
+export default InfoCardsContainer

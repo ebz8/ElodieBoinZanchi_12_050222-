@@ -1,26 +1,39 @@
 import './NavIcon.scss'
 
+import PropTypes from 'prop-types'
+
 import { ReactComponent as MeditationIcon } from '../../assets/icons/meditation.svg'
 import { ReactComponent as SwimIcon } from '../../assets/icons/swim.svg'
 import { ReactComponent as CycleIcon } from '../../assets/icons/cycle.svg'
 import { ReactComponent as BodybuildingIcon } from '../../assets/icons/bodybuilding.svg'
 
-export default function NavIcon(props) {
+/**
+ * Secondary nav in user's dashboard with icons
+ * @param {string} icon link's corresponding icon
+ * @returns {reactElement}
+ */
+function NavIcon({ icon }) {
   return (
     <li>
-        {props.icon === 'meditation' &&
+        {icon === 'meditation' &&
           <MeditationIcon className="navicon"/>
         }
-        {props.icon === 'swim' &&
+        {icon === 'swim' &&
             <SwimIcon className="navicon"/>
         }
-        {props.icon === 'cycle' &&
+        {icon === 'cycle' &&
           <CycleIcon className="navicon"/>
         }
-        {props.icon === 'bodybuilding' &&
+        {icon === 'bodybuilding' &&
           <BodybuildingIcon className="navicon"/>
         }
     </li>
     
   )
 }
+
+NavIcon.propTypes = {
+  icon: PropTypes.string
+}
+
+export default NavIcon

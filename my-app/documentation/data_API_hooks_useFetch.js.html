@@ -28,7 +28,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import { useState, useEffect } from "react"
 
-import { configUrl, currentUrl } from "../../config"
+import { configUrl } from "../../config"
 
 import UserMapper from "../mappers/UserMapper"
 import UserActivityMapper from "../mappers/UserActivityMapper"
@@ -53,73 +53,62 @@ export const useFetch = (id) => {
     const [userAverageSessions, setUserAverageSessions] = useState(null)
 
     
-    const fetchUserInfos = (id) => {
-        return fetch(configUrl.USER_INFOS(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserInfos(UserMapper.convertToUser(data))
-                console.log('fetch user infos done')
-            })
-            .catch((err) => {
-                console.log(`fetch user infos : ${err}`)
-                setError(err)
-            })
+    const fetchUserInfos = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_INFOS(id))
+            const { data } = await res.json()
+            setUserInfos(UserMapper.convertToUser(data))
+            console.log('fetch user infos done')
+        } catch (err) {
+            console.log(`fetch user infos : ${err}`)
+            setError(err)
+        }
     }
 
-    const fetchUserActivity = (id) => {
-        return fetch(configUrl.USER_ACTIVITY(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserActivity(UserActivityMapper.convertToUserActivity(data))
-                console.log('fetch user activity done')
-            })
-            .catch((err) => {
-                console.log(`fetch user activity : ${err}`)
-                setError(err)
-            })
+    const fetchUserActivity = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_ACTIVITY(id))
+            const { data } = await res.json()
+            setUserActivity(UserActivityMapper.convertToUserActivity(data))
+            console.log('fetch user activity done')
+        } catch (err) {
+            console.log(`fetch user activity : ${err}`)
+            setError(err)
+        }
     }
 
-    const fetchUserPerformance = (id) => {
-        return fetch(configUrl.USER_PERFORMANCE(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserPerformance(UserPerformanceMapper.convertToUserPerformance(data))
-                console.log('fetch user performance done')
-            })
-            .catch((err) => {
-                console.log(`fetch user performance : ${err}`)
-                setError(err)
-            })
+    const fetchUserPerformance = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_PERFORMANCE(id))
+            const { data } = await res.json()
+            setUserPerformance(UserPerformanceMapper.convertToUserPerformance(data))
+            console.log('fetch user performance done')
+        } catch (err) {
+            console.log(`fetch user performance : ${err}`)
+            setError(err)
+        }
     }
 
-    const fetchUserAverageSessions = (id) => {
-        return fetch(configUrl.USER_AVERAGESESSIONS(id))
-        .then(res => res.json())
-        .then(
-            ({ data }) => {
-                setUserAverageSessions(UserAverageSessionsMapper.convertToUserAverageSessions(data))
-                console.log('fetch user average sessions done')
-            })
-            .catch((err) => {
-                console.log(`fetch user average sessions : ${err}`)
-                setError(err)
-            })
+    const fetchUserAverageSessions = async (id) => {
+        try {
+            const res = await fetch(configUrl.USER_AVERAGESESSIONS(id))
+            const { data } = await res.json()
+            setUserAverageSessions(UserAverageSessionsMapper.convertToUserAverageSessions(data))
+            console.log('fetch user average sessions done')
+        } catch (err) {
+            console.log(`fetch user average sessions : ${err}`)
+            setError(err)
+        }
     }
 
     useEffect(() => {
-            fetch(currentUrl)
-                .then(function() {
-                    Promise.all([
-                        fetchUserInfos(id),
-                        fetchUserActivity(id),
-                        fetchUserPerformance(id),
-                        fetchUserAverageSessions(id)
-                    ])
-                    .finally(() => setIsLoaded(true))
-                })
+        Promise.all([
+            fetchUserInfos(id),
+            fetchUserActivity(id),
+            fetchUserPerformance(id),
+            fetchUserAverageSessions(id)
+        ])
+        .finally(() => setIsLoaded(true))
     }, [id])
 
 
@@ -141,13 +130,13 @@ export const useFetch = (id) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="UserActivity.html">UserActivity</a></li><li><a href="UserActivityMapper.html">UserActivityMapper</a></li><li><a href="UserAverageSessions.html">UserAverageSessions</a></li><li><a href="UserAverageSessionsMapper.html">UserAverageSessionsMapper</a></li><li><a href="UserMapper.html">UserMapper</a></li><li><a href="UserPerformance.html">UserPerformance</a></li><li><a href="UserPerformanceMapper.html">UserPerformanceMapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#customTickAxis">customTickAxis</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#useFetch">useFetch</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="UserActivity.html">UserActivity</a></li><li><a href="UserActivityMapper.html">UserActivityMapper</a></li><li><a href="UserAverageSessions.html">UserAverageSessions</a></li><li><a href="UserAverageSessionsMapper.html">UserAverageSessionsMapper</a></li><li><a href="UserMapper.html">UserMapper</a></li><li><a href="UserPerformance.html">UserPerformance</a></li><li><a href="UserPerformanceMapper.html">UserPerformanceMapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomHover">CustomHover</a></li><li><a href="global.html#customTickAxis">customTickAxis</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#customToolTip">customToolTip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#InfoCardsContainer">InfoCardsContainer</a></li><li><a href="global.html#NavIcon">NavIcon</a></li><li><a href="global.html#RadialBarChart">RadialBarChart</a></li><li><a href="global.html#SessionsLineChart">SessionsLineChart</a></li><li><a href="global.html#SpiderRadarChart">SpiderRadarChart</a></li><li><a href="global.html#urlAPI">urlAPI</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#UserHeader">UserHeader</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Feb 17 2022 13:45:33 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Feb 18 2022 09:53:42 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

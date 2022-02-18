@@ -2,7 +2,12 @@ import './UserHeader.scss'
 
 import PropTypes from 'prop-types'
 
-export default function UserHeader({ firstName }) {
+/**
+ * Dashboard's header with welcome message and user's name
+ * @param {string} firstName user's first name from fetch data
+ * @returns {reactElement}
+ */
+function UserHeader({ firstName }) {
 
   const welcomeMsg = 'Félicitations ! Vous avez explosé vos objectifs hier 👏'
   
@@ -17,3 +22,5 @@ export default function UserHeader({ firstName }) {
 UserHeader.propTypes = {
   firstName: PropTypes.string
 }
+
+export default UserHeader

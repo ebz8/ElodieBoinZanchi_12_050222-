@@ -9,8 +9,12 @@ import {
 
   /**
    * Custom Tick axis by tweaking component props
-   * @param {*} param0 
-   * @returns 
+   * @param {number} x 
+   * @param {number} y
+   * @param {number} cx
+   * @param {number} cy
+   * @param {object} payload
+   * @param {object} rest
    */
   const customTickAxis = ({ x, y, cx, cy, payload, ...rest}) => {
     return (
