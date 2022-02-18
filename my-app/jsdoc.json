@@ -10,7 +10,7 @@
         "monospaceLinks": true
     },
     "opts": {                      
-        "destination": "./documentation",          
+        "destination": "/docs",          
         "recurse": true,
         "plugins": ["node_modules/better-docs/typescript"],
         "templates": {
