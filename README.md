@@ -40,7 +40,7 @@ npm run start
 yarn dev
 ```
 
-### 1 | Front-end
+### 2 | Front-end
 
 1. Clone this repository :
 
