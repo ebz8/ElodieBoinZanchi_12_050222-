@@ -1,9 +1,15 @@
 import "./RadialBarChart.scss"
-import variables from '../../../variables.scss';
+import variables from '../../variables.scss';
 
 import * as d3 from "d3"
 import PropTypes from "prop-types"
 
+
+/**
+ * Radial Bar Chart component showing user's score
+ * @param {Object} userScore current score from fetch data
+ * @returns {reactElement}
+ */
 function RadialBarChart({ userScore }) {
 
   const width = 170

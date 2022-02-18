@@ -1,5 +1,4 @@
-import './SpiderRadarChart.scss'
-import variables from '../../../variables.scss'
+import variables from '../../variables.scss'
 
 import PropTypes from 'prop-types'
 
@@ -26,10 +25,14 @@ import {
       </text>
     )
   }
-  
-function SpiderRadarChart({ userPerformance }) {
 
-  ///////////// formating data ////////////////  
+/**
+ * Spider Radar Chart component with formated user's performance data
+ * @param {Object} userPerformance current userPerformance from fetch data
+ * @returns {reactElement}
+ */
+function SpiderRadarChart({ userPerformance }) {
+  //// formatting data ////
   const frenchLabels = {
     1: "Cardio",
     2: "Energie",

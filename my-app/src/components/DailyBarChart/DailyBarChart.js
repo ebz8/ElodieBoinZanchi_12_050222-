@@ -1,4 +1,4 @@
-import variables from '../../../variables.scss'
+import variables from '../../variables.scss'
 import './DailyBarChart.scss'
 
 import PropTypes from 'prop-types'
@@ -48,7 +48,7 @@ import {
 /**
  * Daily Bar Chart component with formated dailyData from userActivity
  * @param {Object} userActivity current UserActivity from fetch data
- * @returns 
+ * @returns {reactElement}
  */
 function DailyBarChart({ userActivity }) {
   // formatting data
