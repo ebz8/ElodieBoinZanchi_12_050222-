@@ -6,6 +6,7 @@ import { useFetch } from '../../data/API/hooks/useFetch'
 import HorizontalNav from '../../components/HorizontalNav/HorizontalNav.js'
 import VerticalNav from '../../components/VerticalNav/VerticalNav.js'
 import Dashboard from '../../components/Dashboard/Dashboard.js'
+import Error404 from '../../components/Error404/Error404'
 
 
 export default function Profil() {
@@ -22,7 +23,7 @@ export default function Profil() {
     userAverageSessions
   } = useFetch(userId)
 
-  return error ? <p>Erreur : {error}</p>
+  return error ? <Error404 errorMsg={error}/>
   : !isLoaded ? <p>Chargement</p>
   :
     <>

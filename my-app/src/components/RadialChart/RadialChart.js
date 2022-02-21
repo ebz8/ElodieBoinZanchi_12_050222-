@@ -55,7 +55,6 @@ function RadialChart({ userScore }) {
           fill={variables.maincolor}
         />
       </RadialBarChart>
-
     </ResponsiveContainer>
   )
 }

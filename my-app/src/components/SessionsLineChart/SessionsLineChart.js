@@ -119,10 +119,17 @@ function SessionsLineChart({ averageSessions }) {
             content={customToolTip}
             cursor={<CustomHover />}
           />
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.30"/>
+              <stop offset="80%" stopColor="#ffffff" stopOpacity="1.OO"/>
+            </linearGradient>
+          </defs>
+          
           <Line
             dataKey="sessionLength"
-            type="monotone"
-            stroke={variables.neutralcolor}
+            type="natural"
+            stroke="url(#gradient)"
             strokeWidth="2"
             strokeOpacity="0.8"
             isAnimationActive={true}
