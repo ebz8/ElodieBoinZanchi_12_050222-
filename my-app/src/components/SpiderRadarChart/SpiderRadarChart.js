@@ -1,3 +1,4 @@
+import './SpiderRadarChart.scss'
 import variables from '../../variables.scss'
 
 import PropTypes from 'prop-types'
@@ -20,8 +21,8 @@ import {
     return (
       <text
         {...rest}    
-        y={y + (y - cy) / 10}
-        x={x + (x - cx) / 17}
+        y={y + (y - cy) / 20}
+        x={x + (x - cx) / 20}
         fontSize={12}
         fontWeight={500}
       >
@@ -56,10 +57,9 @@ function SpiderRadarChart({ userPerformance }) {
   //// rotate to match figma mockup ////
   const rotatePerformanceData = performanceData.reverse()
 
-
   return (
-      <ResponsiveContainer className="radarchart-container" width="99%" height="100%">
-        <RadarChart outerRadius={90} data={rotatePerformanceData} cx="50%" cy="50%" >
+      <ResponsiveContainer className="spiderradarchart" width="99%" aspect={1}>
+        <RadarChart outerRadius={85} data={rotatePerformanceData} cx="50%" cy="50%" >
             <PolarGrid
               gridType="polygon"
               polarRadius={[10, 20, 40, 65, 90]}

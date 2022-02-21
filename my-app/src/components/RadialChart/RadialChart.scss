@@ -5,7 +5,16 @@
 .radialchart-container {
     padding-top: 1rem;
     background-color: $lightSecondaryColor;
-    
+
+    .score-number {
+        font-weight: bold;
+        font-size: rem(26);
+    }
+
+    .score-word {
+        font-weight: 500;
+    }
+
     .radialchart {
         display: flex;
         flex-flow: column wrap;
@@ -19,6 +28,8 @@
             font-size: rem(15);
             font-weight: 500;
         }
+
+        
     
     }
 }

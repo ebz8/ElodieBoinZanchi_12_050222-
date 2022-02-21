@@ -82,8 +82,8 @@ function DailyBarChart({ userActivity }) {
             tickLine={false}
             strokeOpacity='1'
             strokeWidth="1.5"
-            stroke={variables.mediumdarksecondarycolor}
-            tick={{ fontSize: 14, fontWeight: 500, opacity: 1}}
+            stroke={variables.mediumsecondarycolor}
+            tick={{ fontSize: 14, fontWeight: 500, opacity: 0.75, fill: variables.mediumdarksecondarycolor}}
             // padding={{ left: -50, right: -50 }}
           />
           <YAxis

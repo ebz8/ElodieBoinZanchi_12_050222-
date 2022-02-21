@@ -37,13 +37,13 @@ function RadialChart({ userScore }) {
         
         <circle cx="50%" cy="50%" fill="white" r="70" />
         <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
-          <tspan dy="-20" fill="#282D30" className="font-bold text-2xl">
+          <tspan dy="-20" fill="#000" className="score-number">
             {userScore * 100}%
           </tspan>
-          <tspan x="50%" dy="26" fill="#74798C" className="font-medium">
+          <tspan x="50%" dy="26" fill="#74798C" className="score-word">
             de votre
           </tspan>
-          <tspan x="50%" dy="26" fill="#74798C" className="font-medium">
+          <tspan x="50%" dy="26" fill="#74798C" className="score-word">
             objectif
           </tspan>
         </text>
