@@ -9,7 +9,8 @@ import {
   Line,
   XAxis,
   YAxis,
-  Tooltip
+  Tooltip,
+  Dot
 } from 'recharts'
 
 
@@ -100,6 +101,20 @@ function SessionsLineChart({ averageSessions }) {
       { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
   ]
 
+  /**
+   * Custom activeDot to have 2 dots with different opacity 
+   * @param {Array} cx active dot's coordinates
+   * @param {Array} cy active dot's coordinates
+   * @returns {ReactElement}
+   */
+  const CustomDots = ({ cx, cy }) => {
+    return (
+      <g>
+        <Dot r={10} fill='white'cy={cy} cx={cx} opacity='0.3'/>
+        <Dot r={4} fill='white'cy={cy} cx={cx}/>
+      </g>
+    )
+  }
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -124,8 +139,7 @@ function SessionsLineChart({ averageSessions }) {
               <stop offset="0%" stopColor="#ffffff" stopOpacity="0.30"/>
               <stop offset="80%" stopColor="#ffffff" stopOpacity="1.OO"/>
             </linearGradient>
-          </defs>
-          
+          </defs>  
           <Line
             dataKey="sessionLength"
             type="natural"
@@ -134,6 +148,7 @@ function SessionsLineChart({ averageSessions }) {
             strokeOpacity="0.8"
             isAnimationActive={true}
             dot={false}
+            activeDot={<CustomDots/>}
           />
         </LineChart>
     </ResponsiveContainer>

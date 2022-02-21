@@ -33,6 +33,11 @@ import {
     return null
   }
 
+   /**
+   * Custom legend
+   * @param {Array} payload 
+   * @returns {ReactElement}
+   */
   const CustomLegend = ({ payload }) => {
     return (
       <ul className='legend'>
