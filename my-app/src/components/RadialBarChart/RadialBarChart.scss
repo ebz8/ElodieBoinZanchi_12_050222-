@@ -1,21 +1,24 @@
 @import '../../variables.scss';
 
-.radialbarchart {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    width: rem(258);
-    height: rem(263);
-    padding: 2rem;
+
+
+.radialbarchart-container {
+    padding-top: 1rem;
     background-color: $lightSecondaryColor;
-
-    h3 {
-        font-size: rem(15);
-        font-weight: 500;
-    }
-
-    .chart-svg {
-        align-self: center;
-        justify-self: center;
+    
+    .radialbarchart {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        width: rem(258);
+        height: rem(263);
+        padding: 2rem;
+        background-color: $lightSecondaryColor;
+    
+        h3 {
+            font-size: rem(15);
+            font-weight: 500;
+        }
+    
     }
 }

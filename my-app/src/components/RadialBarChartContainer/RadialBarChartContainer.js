@@ -1,4 +1,4 @@
-import RadialBarChart from '../RadialBarChart/RadialBarChart'
+import RadialChart from '../RadialBarChart/RadialBarChart'
 
 /**
  * Radial Bar Chart's container
@@ -11,7 +11,7 @@ export default function RadialBarChartContainer({ userInfos }) {
     return (
         <li className="stats-item radialbarchart-container">
             <h3>Score</h3>
-            <RadialBarChart userScore={userInfos.score} />
+            <RadialChart userScore={userInfos.score} />
         </li> 
     )
 }

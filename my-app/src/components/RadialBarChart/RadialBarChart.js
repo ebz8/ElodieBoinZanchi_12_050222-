@@ -1,101 +1,67 @@
 import "./RadialBarChart.scss"
-import variables from '../../variables.scss';
+import variables from '../../variables.scss'
 
-import * as d3 from "d3"
+import {
+    RadialBar,
+    RadialBarChart,
+    PolarAngleAxis,
+    ResponsiveContainer
+} from 'recharts'
+
 import PropTypes from "prop-types"
-
 
 /**
  * Radial Bar Chart component showing user's score
  * @param {Object} userScore current score from fetch data
  * @returns {reactElement}
  */
-function RadialBarChart({ userScore }) {
-
-  const width = 170
-  const height = 170
-  const barWidth = 10
-  const centerX = width / 2
-  const centerY = height / 2
-
-  // progress bar
-  const scoreBarOuterRadius = width / 2
-  const scoreBarInnerRadius = width / 2 - barWidth
-  const scoreArcGenerator = d3
-    .arc()
-    .innerRadius(scoreBarInnerRadius)
-    .outerRadius(scoreBarOuterRadius)
-    .startAngle(0)
-    .cornerRadius(5)
-  const tauProgressArc = (value) =>
-    scoreArcGenerator({
-      // http://tauday.com/tau-manifesto
-      endAngle: -2 * Math.PI * value,
-    });
+function RadialChart({ userScore }) {
+  const scoreData = [{ scoreBar: userScore }]
 
   return (
-    <div className="radialbarchart">
-      <svg width={width} height={height} className="chart-svg">
-        {/* progressive bar */}
-        <g transform={`translate(${width / 2}, ${height / 2})`}>
-          <path
-            d={tauProgressArc(userScore)}
-            cx={centerX}
-            cy={centerY}
-            fill={variables.maincolor}
-          />
-        </g>
-
-        <circle
-          cx={centerX}
-          cy={centerY}
-          r={centerY - barWidth}
-          fill={variables.neutralcolor}
+    <ResponsiveContainer width='99%' height='100%'>
+       <RadialBarChart
+        innerRadius={75}
+        outerRadius={85}
+        startAngle={80}
+        endAngle={360 + 80}
+        data={scoreData}
+        barSize={10}
+      >
+        <PolarAngleAxis
+          type="number"
+          domain={[0, 1]}
+          angleAxisId={0}
+          tick={false}
         />
-
-        {/* score % */}
-        <text
-          className="chart-svg-score"
-          stroke={variables.secondarycolor}
-          x={centerX}
-          y={centerY - 10}
-          textAnchor="middle"
-          fontSize="1.4em"
-        >
-          {" "}
-          {`${userScore * 100}%`}
+        
+        <circle cx="50%" cy="50%" fill="white" r="70" />
+        <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
+          <tspan dy="-20" fill="#282D30" className="font-bold text-2xl">
+            {userScore * 100}%
+          </tspan>
+          <tspan x="50%" dy="26" fill="#74798C" className="font-medium">
+            de votre
+          </tspan>
+          <tspan x="50%" dy="26" fill="#74798C" className="font-medium">
+            objectif
+          </tspan>
         </text>
+        
+        <RadialBar
+          // clockWise
+          dataKey="scoreBar"
+          cornerRadius={10}
+          fill={variables.maincolor}
+        />
+      </RadialBarChart>
 
-        <text
-          className="chart-svg-txt"
-          fill={variables.secondarycolor}
-          x={centerX}
-          y={centerY}
-          textAnchor="middle"
-          dy="1.2em"
-        >
-          {" "}
-          de votre{" "}
-        </text>
-
-        <text
-          className="chart-svg-txt"
-          fill={variables.secondarycolor}
-          x={centerX}
-          y={centerY + 10}
-          textAnchor="middle"
-          dy="2rem"
-        >
-          {" "}
-          objectif{" "}
-        </text>
-      </svg>
-    </div>
+    </ResponsiveContainer>
   )
 }
 
-RadialBarChart.propTypes = {
-  userScore: PropTypes.number.isRequired,
-}
+// RadialBarChart.propTypes = {
+//   userScore: PropTypes.number.isRequired,
+// }
 
-export default RadialBarChart
+export default RadialChart
