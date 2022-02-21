@@ -1,4 +1,4 @@
-import "./RadialBarChart.scss"
+import "./RadialChart.scss"
 import variables from '../../variables.scss'
 
 import {
@@ -60,8 +60,8 @@ function RadialChart({ userScore }) {
   )
 }
 
-// RadialBarChart.propTypes = {
-//   userScore: PropTypes.number.isRequired,
-// }
+RadialChart.propTypes = {
+  userScore: PropTypes.number.isRequired,
+}
 
 export default RadialChart

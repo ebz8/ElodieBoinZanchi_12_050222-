@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import DailyBarChartContainer from '../DailyBarChartContainer/DailyBarChartContainer'
 import SessionsLineChartContainer from '../SessionsLineChartContainer/SessionsLineChartContainer'
 import SpiderRadarChartContainer from '../SpiderRadarChartContainer/SpiderRadarChartContainer'
-import RadialBarChartContainer from '../RadialBarChartContainer/RadialBarChartContainer'
+import RadialChartContainer from '../RadialChartContainer/RadialChartContainer'
 
 function ChartsContainer({ userInfos, userActivity, userPerformance, userAverageSessions }) {
 
@@ -14,7 +14,7 @@ function ChartsContainer({ userInfos, userActivity, userPerformance, userAverage
       <DailyBarChartContainer userActivity={userActivity} />
       <SessionsLineChartContainer userAverageSessions={userAverageSessions} />
       <SpiderRadarChartContainer userPerformance={userPerformance} />      
-      <RadialBarChartContainer userInfos={userInfos} />    
+      <RadialChartContainer userInfos={userInfos} />    
     </ul>
   )
 }
