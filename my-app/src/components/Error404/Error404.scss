@@ -1,0 +1,19 @@
+@import '../../variables.scss';
+
+.error404 {
+    grid-area: main;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    h2 {
+        font-weight: 500;
+        font-size: rem(100);
+    }
+
+    a {
+        color: $mainColor;
+    }
+}
