@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: UserAverageSessions</title>
+    <title>JSDoc: Source: components/RadialChart/RadialChart.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,212 +17,84 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: UserAverageSessions</h1>
+    <h1 class="page-title">Source: components/RadialChart/RadialChart.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>UserAverageSessions<span class="signature">()</span><span class="type-signature"></span></h2>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import "./RadialChart.scss"
+import variables from '../../variables.scss'
+
+import {
+    RadialBar,
+    RadialBarChart,
+    PolarAngleAxis,
+    ResponsiveContainer
+} from 'recharts'
+
+import PropTypes from "prop-types"
+
+/**
+ * Radial Bar Chart component showing user's score
+ * @param {Object} userScore current score from fetch data
+ * @returns {reactElement}
+ */
+function RadialChart({ userScore }) {
+  const scoreData = [{ scoreBar: userScore }]
+
+  return (
+    &lt;ResponsiveContainer width='99%' height='100%'>
+       &lt;RadialBarChart
+        innerRadius={75}
+        outerRadius={85}
+        startAngle={80}
+        endAngle={360 + 80}
+        data={scoreData}
+        barSize={10}
+      >
+        &lt;PolarAngleAxis
+          type="number"
+          domain={[0, 1]}
+          angleAxisId={0}
+          tick={false}
+        />
         
-            <div class="class-description"><p>Class to create an UserAverageSessions</p></div>
+        &lt;circle cx="50%" cy="50%" fill="white" r="70" />
+        &lt;text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
+          &lt;tspan dy="-20" fill="#000" className="score-number">
+            {userScore * 100}%
+          &lt;/tspan>
+          &lt;tspan x="50%" dy="26" fill="#74798C" className="score-word">
+            de votre
+          &lt;/tspan>
+          &lt;tspan x="50%" dy="26" fill="#74798C" className="score-word">
+            objectif
+          &lt;/tspan>
+        &lt;/text>
         
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="UserAverageSessions"><span class="type-signature"></span>new UserAverageSessions<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>user's id number</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>sessions</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>user's sessions (containing objects)</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="data_API_models_UserAverageSessions.js.html">data/API/models/UserAverageSessions.js</a>, <a href="data_API_models_UserAverageSessions.js.html#line7">line 7</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+        &lt;RadialBar
+          // clockWise
+          dataKey="scoreBar"
+          cornerRadius={10}
+          fill={variables.maincolor}
+        />
+      &lt;/RadialBarChart>
+    &lt;/ResponsiveContainer>
+  )
+}
+
+RadialChart.propTypes = {
+  userScore: PropTypes.number.isRequired,
+}
+
+export default RadialChart
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/UserHeader/UserHeader.js</title>
+    <title>JSDoc: Source: components/RadialChartContainer/RadialChartContainer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/UserHeader/UserHeader.js</h1>
+    <h1 class="page-title">Source: components/RadialChartContainer/RadialChartContainer.js</h1>
 
     
 
@@ -26,33 +26,23 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './UserHeader.scss'
-
-import PropTypes from 'prop-types'
+            <pre class="prettyprint source linenums"><code>import RadialChart from '../RadialChart/RadialChart'
 
 /**
- * Dashboard's header with welcome message and user's name
- * @param {string} firstName user's first name from fetch data
+ * Radial Bar Chart's container
+ * Takes user's score from his general infos to shows % score and a progress bar.
+ * @param {Object} userInfos current user's infos from fetch data
  * @returns {reactElement}
  */
-function UserHeader({ firstName }) {
+export default function RadialChartContainer({ userInfos }) {
 
-  const welcomeMsg = 'Félicitations ! Vous avez explosé vos objectifs hier 👏'
-  
-  return (
-    &lt;section className="user-header">
-      &lt;h1>Bonjour &lt;strong>{firstName}&lt;/strong>&lt;/h1>
-      &lt;p>{welcomeMsg}&lt;/p>
-    &lt;/section>
-  )
-}
-
-UserHeader.propTypes = {
-  firstName: PropTypes.string
-}
-
-export default UserHeader
-</code></pre>
+    return (
+        &lt;li className="stats-item radialchart-container">
+            &lt;h3>Score&lt;/h3>
+            &lt;RadialChart userScore={userInfos.score} />
+        &lt;/li> 
+    )
+}</code></pre>
         </article>
     </section>
 
