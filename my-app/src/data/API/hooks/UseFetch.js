@@ -10,7 +10,7 @@ import UserAverageSessionsMapper from "../mappers/UserAverageSessionsMapper"
 
 /**
  * 
- * Custom hook function : chaining promises to connect NodeJS backend (with configUrl import) and getting data with states
+ * Custom hook function : chaining promises to connect NodeJS backend (with configUrl import) and, with modelisation classes, getting data & states
  * @param {string} id current user id get with useParams
  * @returns {object} userInfos, userActivity, userPerformance, userAverageSessions & error / isLoaded status
  */
@@ -80,6 +80,9 @@ export const useFetch = (id) => {
             fetchUserPerformance(id),
             fetchUserAverageSessions(id)
         ])
+        // .then (data => {
+        //     console.log(data.code)
+        // })
         .finally(() => setIsLoaded(true))
     }, [id])
 
