@@ -11,7 +11,8 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  Legend
+  Legend,
+  Rectangle
 } from 'recharts'
 
 
@@ -48,6 +49,13 @@ import {
       }
     </ul>
     )
+}
+
+const CustomCursor = ({ x, y, width, height }) => {
+  return <Rectangle
+          opacity= {0.1}
+          x={x +10} y={y}
+          width={width - 20} height={height} />
 }
 
 /**
@@ -107,7 +115,7 @@ function DailyBarChart({ userActivity }) {
           <Tooltip
             content={<CustomTooltip />}
             isAnimationActive={true}
-            cursor={{ opacity: 0.7 }}          
+            cursor={<CustomCursor/>}   
           />
           <Bar
             dataKey="kilogram"
