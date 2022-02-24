@@ -80,9 +80,6 @@ export const useFetch = (id) => {
             fetchUserPerformance(id),
             fetchUserAverageSessions(id)
         ])
-        // .then (data => {
-        //     console.log(data.code)
-        // })
         .finally(() => setIsLoaded(true))
     }, [id])
 

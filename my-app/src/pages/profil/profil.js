@@ -8,7 +8,10 @@ import VerticalNav from '../../components/VerticalNav/VerticalNav.js'
 import Dashboard from '../../components/Dashboard/Dashboard.js'
 import Error404 from '../../components/Error404/Error404'
 
-
+/**
+ * 
+ * @returns {ReactElement}
+ */
 export default function Profil() {
   // get the current User
   const params = useParams()

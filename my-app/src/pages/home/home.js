@@ -14,6 +14,7 @@ export default function Home() {
       <main className="testnavigation">
         <NavLink to="/user/12">User 12</NavLink>
         <NavLink to="/user/18">User 18</NavLink>
+        <NavLink to="/user/28">User 28</NavLink>
       </main>
     </>
   )
