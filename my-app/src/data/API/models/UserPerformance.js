@@ -1,5 +1,5 @@
 /**
- * Class to create an UserPerformance
+ * Model to create an UserUserPerformance, used as part of fetched data's modelisation class.
  * @class
  * @property {number} id user's id number
  * @property {object} kind kinds of performance (cardio, energy, endurance, strength, speed, intensity)

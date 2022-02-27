@@ -1,7 +1,7 @@
 import UserPerformance from '../models/UserPerformance'
 
 /**
- * Mapper getting json data and converting them to new instances of UserPerformance
+ * Mapper getting json data and converting them to new instances of UserPerformance, used as part of fetched data's modelisation class.
  * @class
  * @property {object} json fetched data
  */

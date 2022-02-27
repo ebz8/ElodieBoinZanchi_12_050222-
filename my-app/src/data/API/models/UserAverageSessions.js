@@ -1,5 +1,5 @@
 /**
- * Class to create an UserAverageSessions
+ * Model to create an UserAverageSessions, used as part of fetched data's modelisation class.
  * @class
  * @property {number} id user's id number
  * @property {array} sessions user's sessions (containing objects)

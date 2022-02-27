@@ -1,5 +1,5 @@
 /**
- * Class to create an User
+ * Model to create an User, used as part of fetched data's modelisation class.
  * @class
  * @property {number} id user's id number
  * @property {string} firstName user's first name
