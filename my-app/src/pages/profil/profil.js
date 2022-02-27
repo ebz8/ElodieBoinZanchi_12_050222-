@@ -9,7 +9,7 @@ import Dashboard from '../../components/Dashboard/Dashboard.js'
 import Error404 from '../../components/Error404/Error404'
 
 /**
- * 
+ * Profil Page Component with useFetch call, including id recovery
  * @returns {ReactElement}
  */
 export default function Profil() {

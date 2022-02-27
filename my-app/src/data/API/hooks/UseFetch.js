@@ -11,6 +11,7 @@ import UserAverageSessionsMapper from "../mappers/UserAverageSessionsMapper"
 /**
  * 
  * Custom hook function : chaining promises to connect NodeJS backend (with configUrl import) and, with modelisation classes, getting data & states
+ * @method 
  * @param {string} id current user id get with useParams
  * @returns {object} userInfos, userActivity, userPerformance, userAverageSessions & error / isLoaded status
  */
