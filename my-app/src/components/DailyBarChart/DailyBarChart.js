@@ -15,9 +15,8 @@ import {
   Rectangle
 } from 'recharts'
 
-
   /**
-   * Custom Tooltip by tweaking component props and passing in custom component
+   * DailyBarChart's custom Tooltip by tweaking component props and passing in custom component
    * @param {Array} payload [0] :  Yaxis 1 (kg), [1] : Yaxis 2 (kCal)
    * @param {Boolean} active active state
    * @returns {ReactElement|null} React Component if active, or null
@@ -35,7 +34,7 @@ import {
   }
 
    /**
-   * Custom cursor on hover
+   * DailyBarChart's custom cursor on hover
    * @param {number} x coordinate 
    * @param {number} y coordinate 
    * @param {number} width of hover effect
@@ -50,8 +49,8 @@ const CustomCursor = ({ x, y, width, height }) => {
 }
 
   /**
-   * Custom legend
-   * @param {Array} payload 
+   * DailyBarChart's Custom legend
+   * @param {Array} payload data
    * @returns {ReactElement}
    */
   const CustomLegend = ({ payload }) => {

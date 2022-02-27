@@ -1,6 +1,8 @@
 import './HorizontalNav.scss'
 import { ReactComponent as Logo } from '../../assets/img/logo.svg'
 
+import PropTypes from 'prop-types'
+
 import { Link, NavLink } from 'react-router-dom'
 
 /**
@@ -8,7 +10,7 @@ import { Link, NavLink } from 'react-router-dom'
  * @param {string} userId 
  * @returns {reactElement}
  */
-export default function HorizontalNav({ userId }) {
+function HorizontalNav({ userId }) {
 
   return (
     <header className="horizontal-nav">
@@ -35,3 +37,9 @@ export default function HorizontalNav({ userId }) {
     </header>
   )
 }
+
+HorizontalNav.propTypes = {
+  userId: PropTypes.string,
+}
+
+export default HorizontalNav

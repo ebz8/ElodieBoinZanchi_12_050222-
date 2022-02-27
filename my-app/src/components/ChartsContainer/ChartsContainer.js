@@ -7,6 +7,14 @@ import SessionsLineChartContainer from '../SessionsLineChartContainer/SessionsLi
 import SpiderRadarChartContainer from '../SpiderRadarChartContainer/SpiderRadarChartContainer'
 import RadialChartContainer from '../RadialChartContainer/RadialChartContainer'
 
+/**
+ * Container Component containing all charts's container
+ * @param {object} userInfos (props) current user's infos from fetch
+ * @param {object} userActivity (props) current user's activity from fetch
+ * @param {object} userPerformance (props) current user's perfromance from fetch
+ * @param {object} userAverageSessions (props) current user's average sessions from fetch
+ * @returns {reactElement}
+ */
 function ChartsContainer({ userInfos, userActivity, userPerformance, userAverageSessions }) {
 
   return (

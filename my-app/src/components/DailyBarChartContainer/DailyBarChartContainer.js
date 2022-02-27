@@ -1,7 +1,7 @@
 import DailyBarChart from "../DailyBarChart/DailyBarChart"
 
 /**
- * Bar Chart's container
+ * Daily Bar Chart's container
  * Takes user's activity to show daily infos about weight and calories burned
  * @param {Object} userActivity current UserActivity from fetch data
  * @returns {reactElement}

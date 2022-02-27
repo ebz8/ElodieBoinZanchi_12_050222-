@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/InfoCard/InfoCard.js</title>
+    <title>JSDoc: Source: components/ChartsContainer/ChartsContainer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/InfoCard/InfoCard.js</h1>
+    <h1 class="page-title">Source: components/ChartsContainer/ChartsContainer.js</h1>
 
     
 
@@ -26,48 +26,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './InfoCard.scss'
+            <pre class="prettyprint source linenums"><code>import './ChartsContainer.scss'
 
 import PropTypes from 'prop-types'
 
-import { ReactComponent as FireIcon } from '../../assets/icons/energy.svg'
-import { ReactComponent as ChickenIcon } from '../../assets/icons/chicken.svg'
-import { ReactComponent as AppleIcon } from '../../assets/icons/apple.svg'
-import { ReactComponent as BurgerIcon } from '../../assets/icons/cheeseburger.svg'
+import DailyBarChartContainer from '../DailyBarChartContainer/DailyBarChartContainer'
+import SessionsLineChartContainer from '../SessionsLineChartContainer/SessionsLineChartContainer'
+import SpiderRadarChartContainer from '../SpiderRadarChartContainer/SpiderRadarChartContainer'
+import RadialChartContainer from '../RadialChartContainer/RadialChartContainer'
 
 /**
- * Card component for one key data with conditionnal rendering
- * @param {number} keyData current key from fetch data
- * @param {string} type to render the good icon (calories, proteines, glucides ou lipides)
- * @param {string} color to chose main element's color
+ * Container Component containing all charts's container
+ * @param {object} userInfos (props) current user's infos from fetch
+ * @param {object} userActivity (props) current user's activity from fetch
+ * @param {object} userPerformance (props) current user's perfromance from fetch
+ * @param {object} userAverageSessions (props) current user's average sessions from fetch
  * @returns {reactElement}
  */
-export default function InfoCard({ keyData, type, color }) {
-  //// format key to match figma mockup ////
-  const formatdKeyData = new Intl.NumberFormat('en-GB').format(keyData)
- 
+function ChartsContainer({ userInfos, userActivity, userPerformance, userAverageSessions }) {
+
   return (
-    &lt;li className={`infocard`}>
-      &lt;div className={`infocard-icon ${color}`}>
-        { type === "Calories" &amp;&amp; &lt;FireIcon /> }
-        { type === "Proteines" &amp;&amp; &lt;ChickenIcon /> }
-        { type === "Glucides" &amp;&amp; &lt;AppleIcon /> }
-        { type === "Lipides" &amp;&amp; &lt;BurgerIcon /> }
-      &lt;/div>
-      &lt;div className="infocard-data">
-        &lt;p>{formatdKeyData}{type === "Calories" ? "kCal" : "g" }&lt;/p>
-        &lt;p>{type}&lt;/p>
-      &lt;/div>
-    &lt;/li>
+    &lt;ul className="stats">
+      &lt;DailyBarChartContainer userActivity={userActivity} />
+      &lt;SessionsLineChartContainer userAverageSessions={userAverageSessions} />
+      &lt;SpiderRadarChartContainer userPerformance={userPerformance} />      
+      &lt;RadialChartContainer userInfos={userInfos} />    
+    &lt;/ul>
   )
 }
 
-InfoCard.propTypes = {
-  keyData: PropTypes.number,
-  type: PropTypes.string,
-  color: PropTypes.string
+
+ChartsContainer.propTypes = {
+  userInfos: PropTypes.object.isRequired,
+  userActivity: PropTypes.object.isRequired,
+  userPerformance: PropTypes.object.isRequired,
+  userAverageSessions: PropTypes.object.isRequired,
 }
-</code></pre>
+
+export default ChartsContainer</code></pre>
         </article>
     </section>
 

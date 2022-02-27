@@ -15,9 +15,9 @@ import {
 
 
   /**
-   * Custom ticks axis
-   * @param {number} x 
-   * @param {number} y
+   * Sessions LineChart's custom ticks axis
+   * @param {number} x coordinates
+   * @param {number} y coordinates
    * @param {object} payload data
    */
   const customTickAxis = ({ x, y, payload }) => {
@@ -38,7 +38,7 @@ import {
   }
 
   /**
-   * Custom tool tip on hover
+   * Sessions LineChart's custom tool tip on hover
    * @param {object} payload payload data
    * @param {boolean} active boolean to control active state of the element 
    */
@@ -54,7 +54,7 @@ import {
   }
   
   /**
-   * Custom hover with darker effect
+   * Sessions LineChart's custom hover with darker effect
    * @param {points} points points coordinates 
    */
   const CustomHover = ({ points }) => {
@@ -70,7 +70,7 @@ import {
   }
   
   /**
-   * Custom activeDot to have 2 dots with different opacity 
+   * Sessions LineChart's custom activeDot to have 2 dots with different opacity 
    * @param {Array} cx active dot's coordinates
    * @param {Array} cy active dot's coordinates
    * @returns {ReactElement}
@@ -84,7 +84,7 @@ import {
     )
   }
 /**
- * Line Chart component with formated datas from user's average sessions
+ * Sessions LineChart component with formated datas from user's average sessions
  * @param {Object} averageSessions current user's average sessions from fetch data
  * @returns {reactElement} with SVG charts
  */

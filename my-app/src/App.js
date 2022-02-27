@@ -1,10 +1,10 @@
 import './App.scss'
 import { Routes, Route } from "react-router-dom"
 
-// composants page
 import Home from './pages/Home/Home'
 import Profil from './pages/Profil/Profil'
 import Error404 from './components/Error404/Error404'
+
 
 function App() {
 

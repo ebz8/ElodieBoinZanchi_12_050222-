@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 
   /**
-   * Custom Tick axis by tweaking component props
+   * Spider RadarChart's custom Tick axis by tweaking component props
    * @param {number} x 
    * @param {number} y
    * @param {number} cx

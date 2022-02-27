@@ -5,9 +5,12 @@ import { Link } from "react-router-dom"
 import HorizontalNav from '../HorizontalNav/HorizontalNav'
 import VerticalNav from '../VerticalNav/VerticalNav'
 
+/**
+ * Page component shown when useFetch fails
+ * @returns {reactElement}
+ */
 export default function Error404() {
   // créer des messages spécifiques selon erreur d'url ou d'API
-  // log l'erreur
   return (
     <>
       <HorizontalNav />

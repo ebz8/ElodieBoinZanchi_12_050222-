@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/InfoCard/InfoCard.js</title>
+    <title>JSDoc: Source: components/Error404/Error404.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/InfoCard/InfoCard.js</h1>
+    <h1 class="page-title">Source: components/Error404/Error404.js</h1>
 
     
 
@@ -26,46 +26,29 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './InfoCard.scss'
+            <pre class="prettyprint source linenums"><code>import './Error404.scss'
 
-import PropTypes from 'prop-types'
+import { Link } from "react-router-dom"
 
-import { ReactComponent as FireIcon } from '../../assets/icons/energy.svg'
-import { ReactComponent as ChickenIcon } from '../../assets/icons/chicken.svg'
-import { ReactComponent as AppleIcon } from '../../assets/icons/apple.svg'
-import { ReactComponent as BurgerIcon } from '../../assets/icons/cheeseburger.svg'
+import HorizontalNav from '../HorizontalNav/HorizontalNav'
+import VerticalNav from '../VerticalNav/VerticalNav'
 
 /**
- * Card component for one key data with conditionnal rendering
- * @param {number} keyData current key from fetch data
- * @param {string} type to render the good icon (calories, proteines, glucides ou lipides)
- * @param {string} color to chose main element's color
+ * Page component shown when useFetch fails
  * @returns {reactElement}
  */
-export default function InfoCard({ keyData, type, color }) {
-  //// format key to match figma mockup ////
-  const formatdKeyData = new Intl.NumberFormat('en-GB').format(keyData)
- 
+export default function Error404() {
+  // créer des messages spécifiques selon erreur d'url ou d'API
   return (
-    &lt;li className={`infocard`}>
-      &lt;div className={`infocard-icon ${color}`}>
-        { type === "Calories" &amp;&amp; &lt;FireIcon /> }
-        { type === "Proteines" &amp;&amp; &lt;ChickenIcon /> }
-        { type === "Glucides" &amp;&amp; &lt;AppleIcon /> }
-        { type === "Lipides" &amp;&amp; &lt;BurgerIcon /> }
+    &lt;>
+      &lt;HorizontalNav />
+      &lt;VerticalNav />
+      &lt;div className='error404'>
+        &lt;h2>Erreur 404&lt;/h2>
+        &lt;Link to="/">Retourner sur la page d'accueil&lt;/Link>
       &lt;/div>
-      &lt;div className="infocard-data">
-        &lt;p>{formatdKeyData}{type === "Calories" ? "kCal" : "g" }&lt;/p>
-        &lt;p>{type}&lt;/p>
-      &lt;/div>
-    &lt;/li>
+    &lt;/>
   )
-}
-
-InfoCard.propTypes = {
-  keyData: PropTypes.number,
-  type: PropTypes.string,
-  color: PropTypes.string
 }
 </code></pre>
         </article>
