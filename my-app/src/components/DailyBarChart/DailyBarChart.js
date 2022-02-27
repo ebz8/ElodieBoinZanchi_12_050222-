@@ -4,10 +4,10 @@ import './DailyBarChart.scss'
 import PropTypes from 'prop-types'
 
 import {
+  ResponsiveContainer,
   Bar,
   BarChart,
   CartesianGrid,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -23,7 +23,7 @@ import {
    * @returns {ReactElement|null} React Component if active, or null
    */
    const CustomTooltip = ({ payload, active }) => {
-    if (active) {
+     if (active) {
       return (
         <div className='tooltip'>
           <p>{payload[0].value}kg</p>
@@ -35,6 +35,21 @@ import {
   }
 
    /**
+   * Custom cursor on hover
+   * @param {number} x coordinate 
+   * @param {number} y coordinate 
+   * @param {number} width of hover effect
+   * @param {number} height of hover effect
+   * @returns {ReactElement}
+   */
+const CustomCursor = ({ x, y, width, height }) => {
+  return <Rectangle
+          opacity= {0.1}
+          x={x +10} y={y}
+          width={width - 20} height={height} />
+}
+
+  /**
    * Custom legend
    * @param {Array} payload 
    * @returns {ReactElement}
@@ -49,13 +64,6 @@ import {
       }
     </ul>
     )
-}
-
-const CustomCursor = ({ x, y, width, height }) => {
-  return <Rectangle
-          opacity= {0.1}
-          x={x +10} y={y}
-          width={width - 20} height={height} />
 }
 
 /**
@@ -87,7 +95,7 @@ function DailyBarChart({ userActivity }) {
           <XAxis
             dataKey='dayAxis'
             tickMargin={12}
-            tickLine={false}
+            tickLine={true}
             strokeOpacity='1'
             strokeWidth="1.5"
             stroke={variables.mediumsecondarycolor}

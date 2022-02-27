@@ -16,6 +16,7 @@ import PropTypes from "prop-types"
  * @returns {reactElement}
  */
 function RadialChart({ userScore }) {
+  // formatting data
   const scoreData = [{ scoreBar: userScore }]
 
   return (
@@ -49,7 +50,6 @@ function RadialChart({ userScore }) {
         </text>
         
         <RadialBar
-          // clockWise
           dataKey="scoreBar"
           cornerRadius={10}
           fill={variables.maincolor}

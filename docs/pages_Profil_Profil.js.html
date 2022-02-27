@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/InfoCard/InfoCard.js</title>
+    <title>JSDoc: Source: pages/Profil/Profil.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/InfoCard/InfoCard.js</h1>
+    <h1 class="page-title">Source: pages/Profil/Profil.js</h1>
 
     
 
@@ -26,48 +26,49 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './InfoCard.scss'
+            <pre class="prettyprint source linenums"><code>import './Profil.scss'
 
-import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
+import { useFetch } from '../../data/API/hooks/useFetch'
 
-import { ReactComponent as FireIcon } from '../../assets/icons/energy.svg'
-import { ReactComponent as ChickenIcon } from '../../assets/icons/chicken.svg'
-import { ReactComponent as AppleIcon } from '../../assets/icons/apple.svg'
-import { ReactComponent as BurgerIcon } from '../../assets/icons/cheeseburger.svg'
+import HorizontalNav from '../../components/HorizontalNav/HorizontalNav.js'
+import VerticalNav from '../../components/VerticalNav/VerticalNav.js'
+import Dashboard from '../../components/Dashboard/Dashboard.js'
+import Error404 from '../../components/Error404/Error404'
 
 /**
- * Card component for one key data with conditionnal rendering
- * @param {number} keyData current key from fetch data
- * @param {string} type to render the good icon (calories, proteines, glucides ou lipides)
- * @param {string} color to chose main element's color
- * @returns {reactElement}
+ * 
+ * @returns {ReactElement}
  */
-export default function InfoCard({ keyData, type, color }) {
-  //// format key to match figma mockup ////
-  const formatdKeyData = new Intl.NumberFormat('en-GB').format(keyData)
- 
-  return (
-    &lt;li className={`infocard`}>
-      &lt;div className={`infocard-icon ${color}`}>
-        { type === "Calories" &amp;&amp; &lt;FireIcon /> }
-        { type === "Proteines" &amp;&amp; &lt;ChickenIcon /> }
-        { type === "Glucides" &amp;&amp; &lt;AppleIcon /> }
-        { type === "Lipides" &amp;&amp; &lt;BurgerIcon /> }
-      &lt;/div>
-      &lt;div className="infocard-data">
-        &lt;p>{formatdKeyData}{type === "Calories" ? "kCal" : "g" }&lt;/p>
-        &lt;p>{type}&lt;/p>
-      &lt;/div>
-    &lt;/li>
-  )
-}
+export default function Profil() {
+  // get the current User
+  const params = useParams()
+  const userId = params.id
+  // fetch data
+  const {
+    isLoaded,
+    error,
+    userInfos,
+    userActivity,
+    userPerformance,
+    userAverageSessions
+  } = useFetch(userId)
 
-InfoCard.propTypes = {
-  keyData: PropTypes.number,
-  type: PropTypes.string,
-  color: PropTypes.string
-}
-</code></pre>
+  return error ? &lt;Error404 errorMsg={error}/>
+  : !isLoaded ? &lt;p>Chargement&lt;/p>
+  :
+    &lt;>
+      &lt;HorizontalNav />
+      &lt;VerticalNav />
+      &lt;Dashboard   
+        userId={userId}
+        userInfos={userInfos}
+        userActivity={userActivity}
+        userPerformance={userPerformance}
+        userAverageSessions={userAverageSessions}
+      />
+    &lt;/>
+}</code></pre>
         </article>
     </section>
 

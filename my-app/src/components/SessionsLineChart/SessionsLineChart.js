@@ -68,7 +68,21 @@ import {
        />  
     ) 
   }
-
+  
+  /**
+   * Custom activeDot to have 2 dots with different opacity 
+   * @param {Array} cx active dot's coordinates
+   * @param {Array} cy active dot's coordinates
+   * @returns {ReactElement}
+   */
+  const CustomDots = ({ cx, cy }) => {
+    return (
+      <g>
+        <Dot r={10} fill='white'cy={cy} cx={cx} opacity='0.3'/>
+        <Dot r={4} fill='white'cy={cy} cx={cx}/>
+      </g>
+    )
+  }
 /**
  * Line Chart component with formated datas from user's average sessions
  * @param {Object} averageSessions current user's average sessions from fetch data
@@ -101,20 +115,7 @@ function SessionsLineChart({ averageSessions }) {
       { day: sessionsData.length + 1, sessionLength: 0, dayName : ' ' },
   ]
 
-  /**
-   * Custom activeDot to have 2 dots with different opacity 
-   * @param {Array} cx active dot's coordinates
-   * @param {Array} cy active dot's coordinates
-   * @returns {ReactElement}
-   */
-  const CustomDots = ({ cx, cy }) => {
-    return (
-      <g>
-        <Dot r={10} fill='white'cy={cy} cx={cx} opacity='0.3'/>
-        <Dot r={4} fill='white'cy={cy} cx={cx}/>
-      </g>
-    )
-  }
+
 
   return (
     <ResponsiveContainer width="100%" height="100%">

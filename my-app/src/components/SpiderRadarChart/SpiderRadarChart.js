@@ -1,11 +1,13 @@
-import './SpiderRadarChart.scss'
 import variables from '../../variables.scss'
 
 import PropTypes from 'prop-types'
 
 import {
-  ResponsiveContainer, RadarChart, PolarGrid,
-  PolarAngleAxis, Radar
+  ResponsiveContainer,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  Radar
 } from 'recharts'
 
   /**
